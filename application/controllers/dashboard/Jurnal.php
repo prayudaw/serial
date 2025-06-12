@@ -1,0 +1,66 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+class Jurnal extends CI_Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('jurnal_model');
+    }
+
+    public function index()
+    {
+        // die('tes');
+        $this->load->view('page/notfound');
+    }
+
+    public function jurnal_tambah()
+    {
+        $this->load->view('dashboard/jurnal/tambah_jurnal');
+    }
+
+    public function tambah_edisi()
+    {
+        $this->load->view('dashboard/jurnal/tambah_edisi');
+    }
+
+    //proses input jurnal nana
+    public function add_proccess_1()
+    {
+        $POST = $this->input->post();
+        $data_input = array(
+            "judul" => $POST['judul'],
+            "anak_judul" => $POST['anak_judul'],
+            "inisial" => $POST['inisial'],
+            "kategori" => $POST['kategori'],
+            "klasifikasi" => $POST['klasifikasi'],
+            "no_panggil" => substr($POST['kategori'], 0, 3) . ' ' . $POST['klasifikasi'] . ' ' . $POST['inisial'],
+            "issn" => $POST['issn'],
+            "bahasa" => $POST['bahasa'],
+            "frekuensi" => $POST['frekuensi'],
+            "penerbit" => $POST['penerbit'],
+            "kota" => $POST['kota'],
+            "keterangan" => $POST['keterangan'],
+            "badan" => $POST['badan'],
+        );
+
+        // var_dump($data_input);
+        // die();
+
+        if ($this->jurnal_model->insert_jurnal_nama($data_input)) {
+            $data = array(
+                'status' => 1,
+                'message' => 'Data Berhasil Disimpan.'
+            );
+
+            echo json_encode($data);
+        } else {
+            $data = array(
+                'status' => 2,
+                'message' => 'Error.'
+            );
+
+            echo json_encode($data);
+        }
+    }
+}
