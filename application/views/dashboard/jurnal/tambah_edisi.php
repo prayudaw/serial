@@ -29,118 +29,114 @@
                 <div id="message-info">
                 </div>
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <form class="form-horizontal">
                             <div class="form-group row">
-                                <label class="col-md-2 control-label">Nama Koleksi Serial</label>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" id="judul" placeholder="Nama Koleksi Serial">
+                                <label class="col-sm-2 control-label">Nama Koleksi Serial</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="nama_jurnal">
+                                        <option selected="" value="">--Pilih Nama Koleksi Serial--</option>
+                                        <?php foreach ($jurnal_nama_list as $value) { ?>
+                                        <option value="<?php echo intval($value['id']) ?>"><?php echo $value['judul'] ?>
+                                        </option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-2 control-label">Anak Judul</label>
+                                <label class="col-md-2 control-label">Volume</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" id="anak_judul" placeholder="Anak Judul">
+                                    <input type="text" class="form-control" id="volume" placeholder="Volume">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-2 control-label">Inisial Koleksi</label>
+                                <label class="col-md-2 control-label">Nomor</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" id="inisial" placeholder="Inisial Koleksi">
+                                    <input type="number" class="form-control" id="nomor" placeholder="Nomor">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 control-label">Kategori</label>
+                                <label class="col-sm-2 control-label">Periode</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" id="kategori">
-                                        <option selected="" value="">--Silahkan Pilih--</option>
-                                        <option value="Jurnal">Jurnal</option>
-                                        <option value="Majalah">Majalah</option>
-                                        <option value="Bulletin">Bulletin</option>
-                                        <option value="News Letter">News Letter</option>
-                                        <option value="Surat Kabar">Surat Kabar</option>
-                                        <option value="Tabloid">Tabloid</option>
-                                        <option value="Kliping">Kliping</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-2 control-label">Nomor Klasifikasi</label>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" id="klasifikasi" placeholder="Nomor Klasifikasi">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-2 control-label">ISSN</label>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" id="issn" placeholder="ISSN">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                                    <select class="form-control" id="periode">
+                                        <option selected="" value="">--Bulan--</option>
+                                        <option value="01">Januari</option>
+                                        <option value="02">Februari</option>
+                                        <option value="03">Maret</option>
+                                        <option value="04">April</option>
+                                        <option value="05">Mei</option>
+                                        <option value="06">Juni</option>
+                                        <option value="07">Juli</option>
+                                        <option value="08">Agustus</option>
+                                        <option value="09">September</option>
+                                        <option value="10">Oktober</option>
+                                        <option value="11">November</option>
+                                        <option value="12">Desember</option>
 
-                    <div class="col-lg-6">
-                        <form class="form-horizontal">
-                            <div class="form-group row">
-                                <label class="col-sm-2 control-label">Bahasa</label>
-                                <div class="col-sm-10">
-                                    <select class="form-control" id="bahasa">
-                                        <option selected="" value="">--Silahkan Pilih--</option>
-                                        <option value="Indonesia">Indonesia</option>
-                                        <option value="Inggris">Inggris</option>
-                                        <option value="Arab">Arab</option>
-                                        <option value="Lainnya">Lainnya</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 control-label">Frekuensi</label>
+                                <label class="col-sm-2 control-label">Tahun</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" id="frekuensi">
-                                        <option selected="" value="">--Silahkan Pilih--</option>
-                                        <option value="Tiap hari">Tiap hari</option>
-                                        <option value="1 Minggu Sekali">1 Minggu Sekali</option>
-                                        <option value="2 Minggu Sekali">2 Minggu Sekali</option>
-                                        <option value="1 Bulan Sekali">1 Bulan Sekali</option>
-                                        <option value="2 Bulan Sekali">2 Bulan Sekali</option>
-                                        <option value="3 Bulan Sekali">3 Bulan Sekali</option>
-                                        <option value="4 Bulan Sekali">4 Bulan Sekali</option>
-                                        <option value="6 Bulan Sekali">6 Bulan Sekali</option>
-                                        <option value="1 Tahun Sekali">1 Tahun Sekali</option>
+                                    <select class="form-control" id="tahun">
+                                        <option selected="" value="">--Tahun--</option>
+                                        <?php $year = date('Y');
+                                        for ($i = $year; $i > 1981; $i--) { ?>
+                                        <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                                        <?php } ?>
+
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-2 control-label">Nama Penerbit</label>
+                                <label class="col-md-2 control-label">Jumlah Eksemplar</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" id="penerbit" placeholder="Nama Penerbit">
+                                    <input type="number" class="form-control" id="eksemplar"
+                                        placeholder="Jumlah Eksemplar">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-2 control-label">Kota Penerbit</label>
+                                <label class="col-md-2 control-label">Judul Artikel</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" id="kota" placeholder="Nama Penerbit">
+                                    <textarea class="form-control" rows="5" id="judul"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-2 control-label">Keterangan Penerbit</label>
+                                <label class="col-md-2 control-label">Penulis Artikel</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" id="keterangan" placeholder="Keterangan Penerbit">
+                                    <input type="text" class="form-control" id="penulis" placeholder="Penulis Artikel">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-2 control-label">Badan Korporasi</label>
+                                <label class="col-md-2 control-label">Halaman Artikel</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" id="badan" placeholder="Badan Korporasi">
+                                    <input type="text" class="form-control" id="halaman" placeholder="Halaman Artikel">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label class="col-md-2 control-label">Abstrak Artikel</label>
+                                <div class="col-md-10">
+                                    <textarea class="form-control" rows="5" id="artikel"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-2 control-label">Tanggal Input</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="tanggal_input">
+                                </div>
+                                <div class="col-md-5">
+                                    <input id="jam" type="text" class="form-control">
+                                </div>
+                            </div>
+
                         </form>
                     </div>
                 </div>
                 <div class="row" style="margin-bottom: 30px;">
                     <div class="col-md-12">
-                        <button class="btn btn-purple waves-effect waves-light" id="btn-save">Submit</button>
+                        <button class="btn btn-purple waves-effect waves-light" id="btn-save-edisi_baru">Submit</button>
                     </div>
                 </div>
             </div>
@@ -149,153 +145,160 @@
         <!-- end content -->
         <?php $this->load->view('dashboard/template/footer') ?>
         <script>
-            function empty_form() {
-                var judul = $('#judul').val('');
-                var anak_judul = $('#anak_judul').val('');
-                var inisial = $('#inisial').val('');
-                var kategori = $('#kategori').val('');
-                var klasifikasi = $('#klasifikasi').val('');
-                var issn = $('#issn').val('');
-                var bahasa = $('#bahasa').val('');
-                var frekuensi = $('#frekuensi').val('');
-                var penerbit = $('#penerbit').val('');
-                var kota = $('#kota').val('');
-                var keterangan = $('#keterangan').val('');
-                var badan = $('#badan').val('');
-                $("#message-info").html('');
+        // function empty_form() {
+        //     var judul = $('#judul').val('');
+        //     var anak_judul = $('#anak_judul').val('');
+        //     var inisial = $('#inisial').val('');
+        //     var kategori = $('#kategori').val('');
+        //     var klasifikasi = $('#klasifikasi').val('');
+        //     var issn = $('#issn').val('');
+        //     var bahasa = $('#bahasa').val('');
+        //     var frekuensi = $('#frekuensi').val('');
+        //     var penerbit = $('#penerbit').val('');
+        //     var kota = $('#kota').val('');
+        //     var keterangan = $('#keterangan').val('');
+        //     var badan = $('#badan').val('');
+        //     $("#message-info").html('');
 
-            }
-            $(document).ready(function() {
-                $("#btn-save").click(function(e) {
-                    e.preventDefault();
-                    var judul = $('#judul').val();
-                    var anak_judul = $('#anak_judul').val();
-                    var inisial = $('#inisial').val();
-                    var kategori = $('#kategori').val();
-                    var klasifikasi = $('#klasifikasi').val();
-                    var issn = $('#issn').val();
-                    var bahasa = $('#bahasa').val();
-                    var frekuensi = $('#frekuensi').val();
-                    var penerbit = $('#penerbit').val();
-                    var kota = $('#kota').val();
-                    var keterangan = $('#keterangan').val();
-                    var badan = $('#badan').val();
+        // }
+        $(document).ready(function() {
 
+            $("#jam").timepicker({
+                showMeridian: !1,
+                icons: {
+                    up: "mdi mdi-chevron-up",
+                    down: "mdi mdi-chevron-down"
+                },
+            });
 
-                    // validasi
-                    var html = "";
-                    if (judul.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" > Nama Koleksi Serial Harus Diisi :(</p>';
-                    }
-
-                    if (anak_judul.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >Anak Judul Harus Diisi :(</p>';
-                    }
-
-                    if (inisial.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >Inisial Harus Diisi :(</p>';
-                    }
-
-                    if (klasifikasi.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >Klasifikasi Harus Diisi :(</p>';
-                    }
-
-                    if (issn.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >ISSN Harus Diisi :(</p>';
-                    }
-
-                    if (bahasa.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >Bahasa Harus Diisi :(</p>';
-                    }
-
-                    if (frekuensi.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >frekuensi Harus Diisi :(</p>';
-                    }
-
-                    if (penerbit.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >penerbit Harus Diisi :(</p>';
-                    }
-
-                    if (kota.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >Kota Harus Diisi :(</p>';
-                    }
-
-                    if (keterangan.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >Keterangan Harus Diisi :(</p>';
-                    }
+            var lastDate = new Date();
+            lastDate.setDate(lastDate.getDate()); //any date you want
+            $("#tanggal_input").datepicker('setDate', lastDate);
+            $("#btn-save-edisi_baru").click(function(e) {
+                e.preventDefault();
+                var nama_jurnal = $("#nama_jurnal option:selected").text();
+                var id_jurnal_nama = $('#nama_jurnal').val();
+                var volume = $('#volume').val();
+                var nomor = $('#nomor').val();
+                var periode = $('#periode').val();
+                var tahun = $('#tahun').val();
+                var eksemplar = $('#eksemplar').val();
+                var judul = $('#judul').val();
+                var penulis = $('#penulis').val();
+                var halaman = $('#halaman').val();
+                var artikel = $('#artikel').val();
+                var tanggal_input = $('#tanggal_input').val();
+                var jam = $('#jam').val();
 
 
-                    if (badan.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >Badan Harus Diisi :(</p>';
-                    }
 
-                    if (html.length != 0) {
-                        var elem = '<div class="alert alert-danger">' + html + '<div>';
-                        $("#message-info").html(elem);
-                        $([document.documentElement, document.body]).animate({
-                                scrollTop: $("body").offset().top,
-                            },
-                            720
-                        );
-                        return false;
-                        //end validasi
-                    } else {
-                        //ajax
-                        $.ajax({
-                            url: "<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/add_proccess_1",
-                            type: "POST",
-                            data: {
-                                "judul": judul,
-                                "anak_judul": anak_judul,
-                                "inisial": inisial,
-                                "kategori": kategori,
-                                "klasifikasi": klasifikasi,
-                                "issn": issn,
-                                "bahasa": bahasa,
-                                "frekuensi": frekuensi,
-                                "penerbit": penerbit,
-                                "kota": kota,
-                                "keterangan": keterangan,
-                                "badan": badan,
-                            },
-                            success: function(response) {
-                                response = JSON.parse(response);
-                                // console.log(response);
-                                if (response.status == 1) {
-                                    Swal.fire({
-                                        title: "Success",
-                                        text: response.message,
-                                        type: "success",
-                                    });
-                                    empty_form();
+                // validasi
+                var html = "";
+                if (nama_jurnal.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" > Nama Koleksi Serial Harus Diisi :(</p>';
+                }
 
-                                }
-                            },
-                            error: function(response) {
-                                // Swal.fire({
-                                //     type: 'error',
-                                //     title: 'Opps!',
-                                //     text: 'server error!'
-                                // });
-                            }
-                        })
+                if (volume.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >Volume Harus Diisi :(</p>';
+                }
 
-                    }
+                if (nomor.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >Nomor Harus Diisi :(</p>';
+                }
 
-                });
+                if (periode.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >Periode Harus Diisi :(</p>';
+                }
+
+                if (tahun.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >Tahun Harus Diisi :(</p>';
+                }
+
+                if (judul.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >Judul Artikel Harus Diisi :(</p>';
+                }
+
+                if (penulis.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >Penulis Artikel Harus Diisi :(</p>';
+                }
+
+                if (halaman.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >Halaman Artikel Harus Diisi :(</p>';
+                }
+
+                if (artikel.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >Abstrak Artikel Harus Diisi :(</p>';
+                }
 
 
+
+                //validasi form
+                if (html.length != 0) {
+                    var elem = '<div class="alert alert-danger">' + html + '<div>';
+                    $("#message-info").html(elem);
+                    $([document.documentElement, document.body]).animate({
+                            scrollTop: $("body").offset().top,
+                        },
+                        720
+                    );
+                    return false;
+                    //end validasi
+                } else {
+                    //ajax
+                    $.ajax({
+                        url: "<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/add_proccess_2",
+                        type: "POST",
+                        data: {
+                            "nama_jurnal": nama_jurnal,
+                            "id_jurnal_nama": id_jurnal_nama,
+                            "volume": volume,
+                            "nomor": nomor,
+                            "periode": periode,
+                            "tahun": tahun,
+                            "eksemplar": eksemplar,
+                            "judul": judul,
+                            "penulis": penulis,
+                            "halaman": halaman,
+                            "artikel": artikel,
+                            "tanggal_input": tanggal_input,
+                            "jam": jam
+                        },
+                        success: function(response) {
+                            response = JSON.parse(response);
+                            // console.log(response);
+                            // if (response.status == 1) {
+                            //     Swal.fire({
+                            //         title: "Success",
+                            //         text: response.message,
+                            //         type: "success",
+                            //     });
+                            //     empty_form();
+
+                            // }
+                        },
+                        error: function(response) {
+                            // Swal.fire({
+                            //     type: 'error',
+                            //     title: 'Opps!',
+                            //     text: 'server error!'
+                            // });
+                        }
+                    })
+
+                }
 
             });
+
+
+
+        });
         </script>

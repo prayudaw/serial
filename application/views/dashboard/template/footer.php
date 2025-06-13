@@ -38,6 +38,16 @@
 <script src="<?php echo base_url() ?>assets/libs/sweetalert2/sweetalert2.min.js"></script>
 
 <script src="<?php echo base_url() ?>assets/js/pages/sweetalerts.init.js"></script>
+
+
+<!-- picker -->
+<script src="<?php echo base_url() ?>assets/libs/moment/moment.min.js"></script>
+<script src="<?php echo base_url() ?>assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
+<script src="<?php echo base_url() ?>assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+<script src="<?php echo base_url() ?>assets/libs/clockpicker/bootstrap-clockpicker.min.js"></script>
+<script src="<?php echo base_url() ?>assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="<?php echo base_url() ?>assets/libs/bootstrap-daterangepicker/daterangepicker.js"></script>
+
 </body>
 
 </html>

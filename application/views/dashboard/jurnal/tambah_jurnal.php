@@ -34,7 +34,8 @@
                             <div class="form-group row">
                                 <label class="col-md-2 control-label">Nama Koleksi Serial</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" id="judul" placeholder="Nama Koleksi Serial">
+                                    <input type="text" class="form-control" id="judul"
+                                        placeholder="Nama Koleksi Serial">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -68,7 +69,8 @@
                             <div class="form-group row">
                                 <label class="col-md-2 control-label">Nomor Klasifikasi</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" id="klasifikasi" placeholder="Nomor Klasifikasi">
+                                    <input type="text" class="form-control" id="klasifikasi"
+                                        placeholder="Nomor Klasifikasi">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -108,6 +110,7 @@
                                         <option value="4 Bulan Sekali">4 Bulan Sekali</option>
                                         <option value="6 Bulan Sekali">6 Bulan Sekali</option>
                                         <option value="1 Tahun Sekali">1 Tahun Sekali</option>
+                                        <option value="Lainnya">Lainnya</option>
                                     </select>
                                 </div>
                             </div>
@@ -126,7 +129,8 @@
                             <div class="form-group row">
                                 <label class="col-md-2 control-label">Keterangan Penerbit</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" id="keterangan" placeholder="Keterangan Penerbit">
+                                    <input type="text" class="form-control" id="keterangan"
+                                        placeholder="Keterangan Penerbit">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -149,153 +153,153 @@
         <!-- end content -->
         <?php $this->load->view('dashboard/template/footer') ?>
         <script>
-            function empty_form() {
-                var judul = $('#judul').val('');
-                var anak_judul = $('#anak_judul').val('');
-                var inisial = $('#inisial').val('');
-                var kategori = $('#kategori').val('');
-                var klasifikasi = $('#klasifikasi').val('');
-                var issn = $('#issn').val('');
-                var bahasa = $('#bahasa').val('');
-                var frekuensi = $('#frekuensi').val('');
-                var penerbit = $('#penerbit').val('');
-                var kota = $('#kota').val('');
-                var keterangan = $('#keterangan').val('');
-                var badan = $('#badan').val('');
-                $("#message-info").html('');
+        function empty_form() {
+            var judul = $('#judul').val('');
+            var anak_judul = $('#anak_judul').val('');
+            var inisial = $('#inisial').val('');
+            var kategori = $('#kategori').val('');
+            var klasifikasi = $('#klasifikasi').val('');
+            var issn = $('#issn').val('');
+            var bahasa = $('#bahasa').val('');
+            var frekuensi = $('#frekuensi').val('');
+            var penerbit = $('#penerbit').val('');
+            var kota = $('#kota').val('');
+            var keterangan = $('#keterangan').val('');
+            var badan = $('#badan').val('');
+            $("#message-info").html('');
 
-            }
-            $(document).ready(function() {
-                $("#btn-save").click(function(e) {
-                    e.preventDefault();
-                    var judul = $('#judul').val();
-                    var anak_judul = $('#anak_judul').val();
-                    var inisial = $('#inisial').val();
-                    var kategori = $('#kategori').val();
-                    var klasifikasi = $('#klasifikasi').val();
-                    var issn = $('#issn').val();
-                    var bahasa = $('#bahasa').val();
-                    var frekuensi = $('#frekuensi').val();
-                    var penerbit = $('#penerbit').val();
-                    var kota = $('#kota').val();
-                    var keterangan = $('#keterangan').val();
-                    var badan = $('#badan').val();
-
-
-                    // validasi
-                    var html = "";
-                    if (judul.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" > Nama Koleksi Serial Harus Diisi :(</p>';
-                    }
-
-                    if (anak_judul.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >Anak Judul Harus Diisi :(</p>';
-                    }
-
-                    if (inisial.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >Inisial Harus Diisi :(</p>';
-                    }
-
-                    if (klasifikasi.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >Klasifikasi Harus Diisi :(</p>';
-                    }
-
-                    if (issn.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >ISSN Harus Diisi :(</p>';
-                    }
-
-                    if (bahasa.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >Bahasa Harus Diisi :(</p>';
-                    }
-
-                    if (frekuensi.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >frekuensi Harus Diisi :(</p>';
-                    }
-
-                    if (penerbit.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >penerbit Harus Diisi :(</p>';
-                    }
-
-                    if (kota.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >Kota Harus Diisi :(</p>';
-                    }
-
-                    if (keterangan.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >Keterangan Harus Diisi :(</p>';
-                    }
+        }
+        $(document).ready(function() {
+            $("#btn-save").click(function(e) {
+                e.preventDefault();
+                var judul = $('#judul').val();
+                var anak_judul = $('#anak_judul').val();
+                var inisial = $('#inisial').val();
+                var kategori = $('#kategori').val();
+                var klasifikasi = $('#klasifikasi').val();
+                var issn = $('#issn').val();
+                var bahasa = $('#bahasa').val();
+                var frekuensi = $('#frekuensi').val();
+                var penerbit = $('#penerbit').val();
+                var kota = $('#kota').val();
+                var keterangan = $('#keterangan').val();
+                var badan = $('#badan').val();
 
 
-                    if (badan.length == 0) {
-                        html +=
-                            ' <p class = "mb-0" >Badan Harus Diisi :(</p>';
-                    }
+                // validasi
+                var html = "";
+                if (judul.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" > Nama Koleksi Serial Harus Diisi :(</p>';
+                }
 
-                    if (html.length != 0) {
-                        var elem = '<div class="alert alert-danger">' + html + '<div>';
-                        $("#message-info").html(elem);
-                        $([document.documentElement, document.body]).animate({
-                                scrollTop: $("body").offset().top,
-                            },
-                            720
-                        );
-                        return false;
-                        //end validasi
-                    } else {
-                        //ajax
-                        $.ajax({
-                            url: "<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/add_proccess_1",
-                            type: "POST",
-                            data: {
-                                "judul": judul,
-                                "anak_judul": anak_judul,
-                                "inisial": inisial,
-                                "kategori": kategori,
-                                "klasifikasi": klasifikasi,
-                                "issn": issn,
-                                "bahasa": bahasa,
-                                "frekuensi": frekuensi,
-                                "penerbit": penerbit,
-                                "kota": kota,
-                                "keterangan": keterangan,
-                                "badan": badan,
-                            },
-                            success: function(response) {
-                                response = JSON.parse(response);
-                                // console.log(response);
-                                if (response.status == 1) {
-                                    Swal.fire({
-                                        title: "Success",
-                                        text: response.message,
-                                        type: "success",
-                                    });
-                                    empty_form();
+                if (anak_judul.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >Anak Judul Harus Diisi :(</p>';
+                }
 
-                                }
-                            },
-                            error: function(response) {
-                                // Swal.fire({
-                                //     type: 'error',
-                                //     title: 'Opps!',
-                                //     text: 'server error!'
-                                // });
+                if (inisial.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >Inisial Harus Diisi :(</p>';
+                }
+
+                if (klasifikasi.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >Klasifikasi Harus Diisi :(</p>';
+                }
+
+                if (issn.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >ISSN Harus Diisi :(</p>';
+                }
+
+                if (bahasa.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >Bahasa Harus Diisi :(</p>';
+                }
+
+                if (frekuensi.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >frekuensi Harus Diisi :(</p>';
+                }
+
+                if (penerbit.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >penerbit Harus Diisi :(</p>';
+                }
+
+                if (kota.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >Kota Harus Diisi :(</p>';
+                }
+
+                if (keterangan.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >Keterangan Harus Diisi :(</p>';
+                }
+
+
+                if (badan.length == 0) {
+                    html +=
+                        ' <p class = "mb-0" >Badan Harus Diisi :(</p>';
+                }
+
+                if (html.length != 0) {
+                    var elem = '<div class="alert alert-danger">' + html + '<div>';
+                    $("#message-info").html(elem);
+                    $([document.documentElement, document.body]).animate({
+                            scrollTop: $("body").offset().top,
+                        },
+                        720
+                    );
+                    return false;
+                    //end validasi
+                } else {
+                    //ajax
+                    $.ajax({
+                        url: "<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/add_proccess_1",
+                        type: "POST",
+                        data: {
+                            "judul": judul,
+                            "anak_judul": anak_judul,
+                            "inisial": inisial,
+                            "kategori": kategori,
+                            "klasifikasi": klasifikasi,
+                            "issn": issn,
+                            "bahasa": bahasa,
+                            "frekuensi": frekuensi,
+                            "penerbit": penerbit,
+                            "kota": kota,
+                            "keterangan": keterangan,
+                            "badan": badan,
+                        },
+                        success: function(response) {
+                            response = JSON.parse(response);
+                            // console.log(response);
+                            if (response.status == 1) {
+                                Swal.fire({
+                                    title: "Success",
+                                    text: response.message,
+                                    type: "success",
+                                });
+                                empty_form();
+
                             }
-                        })
+                        },
+                        error: function(response) {
+                            // Swal.fire({
+                            //     type: 'error',
+                            //     title: 'Opps!',
+                            //     text: 'server error!'
+                            // });
+                        }
+                    })
 
-                    }
-
-                });
-
-
+                }
 
             });
+
+
+
+        });
         </script>

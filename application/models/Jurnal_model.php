@@ -10,7 +10,14 @@ class Jurnal_model extends CI_Model
 
     public function insert_jurnal_nama($data)
     {
-        $this->db->insert('jurnal_nama_new', $data);
+        $this->db->insert('jurnal_nama', $data);
         return $this->db->insert_id();
+    }
+
+    public function get_jurnal_nama()
+    {
+        $this->db->from('jurnal_nama');
+        $query = $this->db->get();
+        return $query->result_array();
     }
 }

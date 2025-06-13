@@ -21,10 +21,17 @@ class Jurnal extends CI_Controller
 
     public function tambah_edisi()
     {
-        $this->load->view('dashboard/jurnal/tambah_edisi');
+        $get_jurnal_nama = $this->jurnal_model->get_jurnal_nama();
+        $data = array(
+            'title' => 'Tambah Edisi',
+            'jurnal_nama_list' => $get_jurnal_nama
+        );
+        // var_dump($data);
+        // die();
+        $this->load->view('dashboard/jurnal/tambah_edisi', $data);
     }
 
-    //proses input jurnal nana
+    //proses input jurnal nama
     public function add_proccess_1()
     {
         $POST = $this->input->post();
@@ -62,5 +69,12 @@ class Jurnal extends CI_Controller
 
             echo json_encode($data);
         }
+    }
+
+
+    //proses input jurnal artikel
+    public function add_proccess_2()
+    {
+        die('tes');
     }
 }

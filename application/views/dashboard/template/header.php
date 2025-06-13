@@ -11,10 +11,23 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="<?php echo base_url() ?>assets/images/favicon.ico">
     <!-- App css -->
-    <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+    <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"
+        id="bootstrap-stylesheet" />
     <link href="<?php echo base_url() ?>assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url() ?>assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet" />
     <link href="<?php echo base_url() ?>assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- picker -->
+    <link href="<?php echo base_url() ?>assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.css"
+        rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url() ?>assets/libs/clockpicker/bootstrap-clockpicker.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet"
+        type="text/css" />
+    <link href="<?php echo base_url() ?>assets/libs/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet"
+        type="text/css" />
+
+
 </head>
 
 <body data-layout="horizontal">
