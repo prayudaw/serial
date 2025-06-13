@@ -75,6 +75,25 @@ class Jurnal extends CI_Controller
     //proses input jurnal artikel
     public function add_proccess_2()
     {
-        die('tes');
+        $POST = $this->input->post();
+        $tgl_input = date('Y-m-d', strtotime($POST['tanggal_input']));
+        // var_dump($tgl_input);
+        // die();
+
+        $data_input = array(
+            'nama_jurnal' => $_POST['nama_jurnal'],
+            'id_jurnal_nama' => $_POST['id_jurnal_nama'],
+            'volume' => $_POST['volume'],
+            'nomor' => $_POST['nomor'],
+            'tahun' => '' . $_POST['tahun'] . '-' . $_POST['periode'] . '-00',
+            'judul' => $_POST['judul'],
+            'penulis' => $_POST['penulis'],
+            'halaman' => $_POST['halaman'],
+            'artikel' => $_POST['artikel'],
+            'tgl_input' => $tgl_input . ' ' . $_POST['jam'] . ':00',
+        );
+
+        var_dump($data_input);
+        die();
     }
 }
