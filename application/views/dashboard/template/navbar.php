@@ -5,7 +5,7 @@
                 <ul class="list-unstyled topnav-menu float-right mb-0">
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="<?php echo base_url() ?>assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
+                            <span><?php echo $this->session->userdata('nama') ?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                             <!-- item-->
@@ -16,11 +16,16 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a href="javascript:void(0);" class="dropdown-item notify-item btn-logout">
                                 <i class="mdi mdi-logout-variant"></i>
                                 <span>Logout</span>
                             </a>
                         </div>
+                    </li>
+                    <li class="dropdown notification-list">
+                        <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
+                            <i class="mdi mdi-settings-outline noti-icon"></i>
+                        </a>
                     </li>
                 </ul>
 
@@ -28,7 +33,7 @@
                 <div class="logo-box">
                     <a href="index.html" class="logo text-center">
                         <span class="logo-lg">
-                            <img src="<?php echo base_url() ?>assets/images/logo.png" alt="" height="30">
+                            <img src="<?php echo base_url() ?>assets/img/perpus/bk-logo.png" alt="" height="65">
                             <!-- <span class="logo-lg-text-light">Zircos</span> -->
                         </span>
                         <span class="logo-sm">
@@ -52,12 +57,12 @@
                             <a href="#"> <i class="mdi mdi-view-dashboard"></i>Dashboard</a>
                         </li>
                         <li class="has-submenu">
-                            <a href="#"> <i class="mdi mdi-comment-text"></i>Jurnal
+                            <a href="#"> <i class=" mdi mdi-newspaper-variant-multiple-outline"></i>Jurnal
                             </a>
                         </li>
                         <li class="has-submenu">
                             <a href="#">
-                                <i class="mdi mdi-google-pages"></i>Tambah
+                                <i class="mdi mdi-plus-box-multiple-outline"></i>Tambah
                             </a>
                             <ul class="submenu megamenu">
                                 <li>

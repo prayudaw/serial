@@ -6,6 +6,13 @@ class Jurnal extends CI_Controller
     {
         parent::__construct();
         $this->load->model('jurnal_model');
+        // $this->load->model('auth_model');
+
+        // $check = $this->auth_model->current_user();
+        // //var_dump($check);die();
+        // if ($check != 1) {
+        //     redirect(INDEX_URL . 'login');
+        // }
     }
 
     public function index()
@@ -21,10 +28,17 @@ class Jurnal extends CI_Controller
 
     public function tambah_edisi()
     {
-        $this->load->view('dashboard/jurnal/tambah_edisi');
+        $get_jurnal_nama = $this->jurnal_model->get_jurnal_nama();
+        $data = array(
+            'title' => 'Tambah Edisi',
+            'jurnal_nama_list' => $get_jurnal_nama
+        );
+        // var_dump($data);
+        // die();
+        $this->load->view('dashboard/jurnal/tambah_edisi', $data);
     }
 
-    //proses input jurnal nana
+    //proses input jurnal nama
     public function add_proccess_1()
     {
         $POST = $this->input->post();
@@ -62,5 +76,49 @@ class Jurnal extends CI_Controller
 
             echo json_encode($data);
         }
+    }
+
+    //proses input jurnal artikel
+    public function add_proccess_2()
+    {
+        $POST = $this->input->post();
+        $tgl_input = date('Y-m-d', strtotime($POST['tanggal_input']));
+        // var_dump($tgl_input);
+        // die();
+        $data_input = array(
+            'nama_jurnal' => $_POST['nama_jurnal'],
+            'id_jurnal_nama' => $_POST['id_jurnal_nama'],
+            'volume' => $_POST['volume'],
+            'nomor' => $_POST['nomor'],
+            'tahun' => '' . $_POST['tahun'] . '-' . $_POST['periode'] . '-00',
+            'judul' => $_POST['judul'],
+            'penulis' => $_POST['penulis'],
+            'halaman' => $_POST['halaman'],
+            'artikel' => $_POST['artikel'],
+            'tgl_input' => $tgl_input . ' ' . $_POST['jam'] . ':00',
+        );
+
+        if ($this->jurnal_model->insert_jurnal_artikel($data_input)) {
+            $data = array(
+                'status' => 1,
+                'message' => 'Data Berhasil Disimpan.'
+            );
+            echo json_encode($data);
+        } else {
+            $data = array(
+                'status' => 2,
+                'message' => 'Error.'
+            );
+
+            echo json_encode($data);
+        }
+    }
+
+    public function list_jurn()
+    {
+        $data = array(
+            'title' => 'List Jurnal'
+        );
+        $this->load->view('dashboard/jurnal/list_jurnal', $data);
     }
 }
