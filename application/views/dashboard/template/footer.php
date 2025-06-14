@@ -19,9 +19,34 @@
 </div>
 <!-- END wrapper -->
 
+
+<!-- Right Sidebar -->
+<div class="right-bar">
+    <div class="rightbar-title">
+        <a href="javascript:void(0);" class="right-bar-toggle float-right">
+            <i class="mdi mdi-close"></i>
+        </a>
+        <h4 class="font-16 m-0 text-white">Ganti tema</h4>
+    </div>
+    <div class="slimscroll-menu">
+        <div class="p-4">
+            <div class="custom-control custom-switch mb-3">
+                <input type="checkbox" class="custom-control-input theme-choice" id="light-mode-switch" checked />
+                <label class="custom-control-label" for="light-mode-switch">Light Mode</label>
+            </div>
+            <div class="custom-control custom-switch mb-3">
+                <input type="checkbox" class="custom-control-input theme-choice" id="dark-mode-switch" data-bsStyle="<?php echo base_url() ?>assets/css/bootstrap-dark.min.css"
+                    data-appStyle="<?php echo base_url() ?>assets/css/app-dark.min.css" />
+                <label class="custom-control-label" for="dark-mode-switch">Dark Mode</label>
+            </div>
+        </div>
+    </div> <!-- end slimscroll-menu-->
+</div>
+<!-- /Right-bar -->
+
+
 <!-- Right bar overlay-->
 <div class="rightbar-overlay"></div>
-
 
 <!-- Vendor js -->
 <script src="<?php echo base_url() ?>assets/js/vendor.min.js"></script>
@@ -29,7 +54,9 @@
 <script src="<?php echo base_url() ?>assets/libs/morris-js/morris.min.js"></script>
 <script src="<?php echo base_url() ?>assets/libs/raphael/raphael.min.js"></script>
 
-<script src="<?php echo base_url() ?>assets/js/pages/dashboard.init.js"></script>
+
+
+
 
 <!-- App js -->
 <script src="<?php echo base_url() ?>assets/js/app.min.js"></script>
@@ -48,6 +75,32 @@
 <script src="<?php echo base_url() ?>assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 <script src="<?php echo base_url() ?>assets/libs/bootstrap-daterangepicker/daterangepicker.js"></script>
 
+<!-- select2 -->
+<script src="<?php echo base_url() ?>assets/plugin_lain\select2\select2.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $(".btn-logout").click(function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: "Apakah anda ingin logout?",
+                text: "",
+                type: "warning",
+                showCancelButton: !0,
+                confirmButtonColor: "#348cd4",
+                cancelButtonColor: "#6c757d",
+                confirmButtonText: "Ya",
+            }).then(function(t) {
+                t.value &&
+                    Swal.fire("Sipp", "Anda Berhasil Logout.", "success");
+                window.location.href = "<?php echo base_url() . INDEX_URL ?>login/logout";
+            });
+
+
+        });
+
+    });
+</script>
 </body>
 
 </html>

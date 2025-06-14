@@ -332,4 +332,6 @@
             <!-- end container-fluid -->
         </div>
         <!-- end content -->
+
         <?php $this->load->view('dashboard/template/footer') ?>
+        <script src="<?php echo base_url() ?>assets/js/pages/dashboard.init.js"></script>

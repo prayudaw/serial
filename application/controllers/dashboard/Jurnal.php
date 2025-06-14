@@ -6,6 +6,13 @@ class Jurnal extends CI_Controller
     {
         parent::__construct();
         $this->load->model('jurnal_model');
+        // $this->load->model('auth_model');
+
+        // $check = $this->auth_model->current_user();
+        // //var_dump($check);die();
+        // if ($check != 1) {
+        //     redirect(INDEX_URL . 'login');
+        // }
     }
 
     public function index()
@@ -71,7 +78,6 @@ class Jurnal extends CI_Controller
         }
     }
 
-
     //proses input jurnal artikel
     public function add_proccess_2()
     {
@@ -79,7 +85,6 @@ class Jurnal extends CI_Controller
         $tgl_input = date('Y-m-d', strtotime($POST['tanggal_input']));
         // var_dump($tgl_input);
         // die();
-
         $data_input = array(
             'nama_jurnal' => $_POST['nama_jurnal'],
             'id_jurnal_nama' => $_POST['id_jurnal_nama'],
@@ -93,7 +98,27 @@ class Jurnal extends CI_Controller
             'tgl_input' => $tgl_input . ' ' . $_POST['jam'] . ':00',
         );
 
-        var_dump($data_input);
-        die();
+        if ($this->jurnal_model->insert_jurnal_artikel($data_input)) {
+            $data = array(
+                'status' => 1,
+                'message' => 'Data Berhasil Disimpan.'
+            );
+            echo json_encode($data);
+        } else {
+            $data = array(
+                'status' => 2,
+                'message' => 'Error.'
+            );
+
+            echo json_encode($data);
+        }
+    }
+
+    public function list_jurn()
+    {
+        $data = array(
+            'title' => 'List Jurnal'
+        );
+        $this->load->view('dashboard/jurnal/list_jurnal', $data);
     }
 }

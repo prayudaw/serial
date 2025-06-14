@@ -14,6 +14,13 @@ class Jurnal_model extends CI_Model
         return $this->db->insert_id();
     }
 
+
+    public function insert_jurnal_artikel($data)
+    {
+        $this->db->insert('jurnal_artikel', $data);
+        return $this->db->insert_id();
+    }
+
     public function get_jurnal_nama()
     {
         $this->db->from('jurnal_nama');

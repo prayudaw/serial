@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Dashboard 1 | Zircos - Responsive Bootstrap 4 Admin Dashboard</title>
+    <title>Sistem Informasi Serial</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Responsive bootstrap 4 admin template" name="description" />
+    <meta content="Sistem Informasi Serial Perpustakaan UIN Sunan Kalijaga" name="description" />
     <meta content="Coderthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="<?php echo base_url() ?>assets/images/favicon.ico">
+    <link rel="shortcut icon" href="<?php echo base_url() ?>assets/img/perpus/logo-perpus.png">
     <!-- App css -->
     <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"
         id="bootstrap-stylesheet" />
@@ -27,7 +27,9 @@
     <link href="<?php echo base_url() ?>assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet"
         type="text/css" />
 
-
+    <!-- select2 -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugin_lain/select2/select2.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugin_lain/select2/select2-bootstrap4.min.css" />
 </head>
 
 <body data-layout="horizontal">
