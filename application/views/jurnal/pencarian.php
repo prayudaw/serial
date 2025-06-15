@@ -31,12 +31,14 @@
                         <div class="card-box">
                             <div class="row">
                                 <div class="col-md-8 offset-md-2">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Masukan Kata Kunci Pencarian" name="search" id="pencari">
-                                        <span class="input-group-append">
-                                            <button type="button" class="btn waves-effect waves-light btn-primary"><i class="fa fa-search mr-1"></i> Search</button>
-                                        </span>
-                                    </div>
+                                    <form method="POST" action="<?php echo site_url() . INDEX_URL ?>jurnal/cari">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Masukan Kata Kunci Pencarian" name="search" id="pencari">
+                                            <span class="input-group-append">
+                                                <button type="submit" class="btn waves-effect waves-light btn-primary"><i class="fa fa-search mr-1"></i> Search</button>
+                                            </span>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
 
