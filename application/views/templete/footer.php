@@ -19,7 +19,6 @@
 </div>
 <!-- END wrapper -->
 
-
 <!-- Right Sidebar -->
 <div class="right-bar">
     <div class="rightbar-title">
@@ -51,13 +50,6 @@
 <!-- Vendor js -->
 <script src="<?php echo base_url() ?>assets/js/vendor.min.js"></script>
 
-<script src="<?php echo base_url() ?>assets/libs/morris-js/morris.min.js"></script>
-<script src="<?php echo base_url() ?>assets/libs/raphael/raphael.min.js"></script>
-
-
-
-
-
 <!-- App js -->
 <script src="<?php echo base_url() ?>assets/js/app.min.js"></script>
 
@@ -80,32 +72,6 @@
 
 <script>
     $(document).ready(function() {
-        $(".btn-logout").click(function(e) {
-            e.preventDefault();
-            Swal.fire({
-                title: "Apakah Anda Ingin Logout?",
-                text: "",
-                type: "warning",
-                showCancelButton: !0,
-                confirmButtonText: "Ya",
-                cancelButtonText: "Tidak",
-                confirmButtonClass: "btn btn-success mt-2",
-                cancelButtonClass: "btn btn-danger ml-2 mt-2",
-                buttonsStyling: !1,
-            }).then(function(ok) {
-                if (ok['value'] == true) {
-                    Swal.fire({
-                        title: "Success",
-                        text: "Anda Berhasil Logout",
-                        type: "success",
-                    });
-                    window.location.href = "<?php echo base_url() . INDEX_URL ?>login/logout";
-                }
-
-            });
-
-
-        });
 
     });
 </script>

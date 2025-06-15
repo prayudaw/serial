@@ -27,4 +27,16 @@ class Jurnal_model extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    //query pencarian jurnal
+    public function get_search($keywords)
+    {
+        $this->db->select('*');
+        $this->db->from('jurnal_artikel');
+        $this->db->like('judul', $keywords);
+        $this->db->or_like('penulis', $keywords);
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }
