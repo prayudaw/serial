@@ -34,7 +34,8 @@
                 <label class="custom-control-label" for="light-mode-switch">Light Mode</label>
             </div>
             <div class="custom-control custom-switch mb-3">
-                <input type="checkbox" class="custom-control-input theme-choice" id="dark-mode-switch" data-bsStyle="<?php echo base_url() ?>assets/css/bootstrap-dark.min.css"
+                <input type="checkbox" class="custom-control-input theme-choice" id="dark-mode-switch"
+                    data-bsStyle="<?php echo base_url() ?>assets/css/bootstrap-dark.min.css"
                     data-appStyle="<?php echo base_url() ?>assets/css/app-dark.min.css" />
                 <label class="custom-control-label" for="dark-mode-switch">Dark Mode</label>
             </div>
@@ -59,6 +60,11 @@
 <script src="<?php echo base_url() ?>assets/js/pages/sweetalerts.init.js"></script>
 
 
+
+<!-- Plugins js-->
+<script src="<?php echo base_url() ?>assets/libs/nestable2/jquery.nestable.min.js"></script>
+
+
 <!-- picker -->
 <script src="<?php echo base_url() ?>assets/libs/moment/moment.min.js"></script>
 <script src="<?php echo base_url() ?>assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
@@ -68,12 +74,12 @@
 <script src="<?php echo base_url() ?>assets/libs/bootstrap-daterangepicker/daterangepicker.js"></script>
 
 <!-- select2 -->
-<script src="<?php echo base_url() ?>assets/plugin_lain\select2\select2.min.js"></script>
+<script src="<?php echo base_url() ?>assets/plugin_lain/select2/select2.min.js"></script>
 
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
 
-    });
+});
 </script>
 </body>
 

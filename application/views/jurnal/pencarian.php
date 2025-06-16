@@ -33,9 +33,12 @@
                                 <div class="col-md-8 offset-md-2">
                                     <form method="POST" action="<?php echo site_url() . INDEX_URL ?>jurnal/cari">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Masukan Kata Kunci Pencarian" name="search" id="pencari">
+                                            <input type="text" class="form-control"
+                                                placeholder="Masukan Kata Kunci Pencarian" name="search" id="pencari">
                                             <span class="input-group-append">
-                                                <button type="submit" class="btn waves-effect waves-light btn-primary"><i class="fa fa-search mr-1"></i> Search</button>
+                                                <button type="submit"
+                                                    class="btn waves-effect waves-light btn-primary"><i
+                                                        class="fa fa-search mr-1"></i> Search</button>
                                             </span>
                                         </div>
                                     </form>
@@ -54,27 +57,31 @@
 
                                         <ul class="nav nav-tabs tabs-bordered" role="tablist">
                                             <li class="nav-item">
-                                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">
+                                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
+                                                    role="tab" aria-controls="home" aria-selected="false">
                                                     <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
-                                                    <span class="d-none d-sm-block"><b>All results</b> <span class="badge badge-success ml-2"><?php echo $count_result ?></span></span>
+                                                    <span class="d-none d-sm-block"><b>All results</b> <span
+                                                            class="badge badge-success ml-2"><?php echo $count_result ?></span></span>
                                                 </a>
                                             </li>
                                         </ul>
                                         <div class="tab-content">
-                                            <div class="tab-pane show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                            <div class="tab-pane show active" id="home" role="tabpanel"
+                                                aria-labelledby="home-tab">
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <?php
                                                         foreach ($list_search as $value) { ?>
-                                                            <div class="search-item">
-                                                                <h5 class="font-18 mb-1"><a href="#"><?php echo $value['judul'] ?></a></h5>
-                                                                <div class="font-13 text-success mb-2">
-                                                                    <?php echo $value['penulis'] ?>
-                                                                </div>
-                                                                <p class="mb-0">
-                                                                    <?php echo $value['artikel'] ?>
-                                                                </p>
+                                                        <div class="search-item">
+                                                            <h5 class="font-18 mb-1"><a
+                                                                    href="#"><?php echo $value['judul'] ?></a></h5>
+                                                            <div class="font-13 text-success mb-2">
+                                                                <?php echo $value['penulis'] ?>
                                                             </div>
+                                                            <p class="mb-0">
+                                                                <?php echo $value['artikel'] ?>
+                                                            </p>
+                                                        </div>
 
                                                         <?php } ?>
 
@@ -132,8 +139,8 @@
         <!-- end footer -->
 
         <script>
-            $(document).ready(function() {
+        $(document).ready(function() {
 
-                $("#pencari").val('<?php echo $search ?>');
-            });
+            $("#pencari").val('<?php echo $search ?>');
+        });
         </script>
