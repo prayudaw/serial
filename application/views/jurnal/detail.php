@@ -27,13 +27,13 @@
                 <!-- end page title -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="mt-4">
+                        <!-- <div class="mt-4">
                             <h4>Abstrak</h4>
 
                         </div>
                         <p class="mt-3">
                             <?php echo $detail['artikel'] ?>
-                        </p>
+                        </p> -->
 
                         <div class="mt-4">
                             <div class="card-box">
@@ -72,6 +72,11 @@
                                                 </th>
                                                 <td><?php echo $detail['eksemplar'] ?></td>
                                             </tr>
+                                            <tr>
+                                                <th style="width: 300px;"><b style="color:#000">Abstrak:</b>
+                                                </th>
+                                                <td><?php echo $detail['artikel'] ?></td>
+                                            </tr>
 
 
                                         </tbody>
@@ -99,8 +104,8 @@
             <!-- end footer -->
 
             <script>
-            $(document).ready(function() {
+                $(document).ready(function() {
 
-                $("#pencari").val('<?php echo $search ?>');
-            });
+                    $("#pencari").val('<?php echo $search ?>');
+                });
             </script>
