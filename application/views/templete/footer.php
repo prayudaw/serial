@@ -3,7 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                2025 &copy; SISTEM INFORMASI PERPUSTAKAAN UIN SUNAN KALIJAGA</a>
+                2025 <a href="<?php echo base_url() . INDEX_URL ?>login">&copy;</a> SISTEM INFORMASI PERPUSTAKAAN UIN
+                SUNAN KALIJAGA</a>
             </div>
         </div>
     </div>

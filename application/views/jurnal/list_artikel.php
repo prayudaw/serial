@@ -24,10 +24,14 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                    eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <?php foreach ($get_list as $value) { ?>
+                                <p class="mb-0">- <?php echo $value['penulis'] ?>.
+                                    <a href="<?php echo base_url() . INDEX_URL ?>jurnal/detail/<?php echo $value['id'] ?> "
+                                        style="color:#23928E"> <b
+                                            style="font-style: italic;"><?php echo $value['judul'] ?></b></a>.
+                                </p>
+                                <?php } ?>
+
                             </div>
                         </div>
                     </div>

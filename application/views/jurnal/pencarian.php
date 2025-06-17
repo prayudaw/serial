@@ -69,50 +69,41 @@
                                             <div class="tab-pane show active" id="home" role="tabpanel"
                                                 aria-labelledby="home-tab">
                                                 <div class="row">
+                                                    <!-- jika data ditemukan -->
+
                                                     <div class="col-md-12">
+                                                        <?php if ($count_result > 0) { ?>
                                                         <?php
-                                                        foreach ($list_search as $value) { ?>
+                                                            foreach ($list_search as $value) { ?>
                                                         <div class="search-item">
                                                             <h5 class="font-18 mb-1"><a
-                                                                    href="#"><?php echo $value['judul'] ?></a></h5>
+                                                                    href="<?php echo base_url() . INDEX_URL ?>/jurnal/detail/<?php echo $value['id'] ?>"><?php echo $value['judul'] ?></a>
+                                                            </h5>
                                                             <div class="font-13 text-success mb-2">
-                                                                <?php echo $value['penulis'] ?>
+                                                                Penulis: <?php echo $value['penulis'] ?>,Kategori
+                                                                :<?php echo $value['kategori'] ?>
                                                             </div>
                                                             <p class="mb-0">
                                                                 <?php echo $value['artikel'] ?>
                                                             </p>
                                                         </div>
-
                                                         <?php } ?>
 
-
-
-                                                        <!-- <ul class="pagination pagination-split float-right mb-0">
-                                                            <li class="page-item disabled">
-                                                                <a href="#" class="page-link"><i class="fa fa-angle-left"></i></a>
-                                                            </li>
-                                                            <li class="page-item">
-                                                                <a href="#" class="page-link">1</a>
-                                                            </li>
-                                                            <li class="page-item active">
-                                                                <a href="#" class="page-link">2</a>
-                                                            </li>
-                                                            <li class="page-item">
-                                                                <a href="#" class="page-link">3</a>
-                                                            </li>
-                                                            <li class="page-item">
-                                                                <a href="#" class="page-link">4</a>
-                                                            </li>
-                                                            <li class="page-item">
-                                                                <a href="#" class="page-link">5</a>
-                                                            </li>
-                                                            <li class="page-item">
-                                                                <a href="#" class="page-link"><i class="fa fa-angle-right"></i></a>
-                                                            </li>
-                                                        </ul> -->
-
                                                         <div class="clearfix"></div>
+                                                        <?php   } else { ?>
+                                                        <div class="card">
+                                                            <div class="card-header bg-danger">
+                                                                <h3 class="card-title text-white mb-0"
+                                                                    style="text-align: center;"><i
+                                                                        class="mdi mdi-information"></i>
+                                                                    Mohon Maaf Data Tidak Ditemukan
+                                                                </h3>
+                                                            </div>
+                                                        </div>
+                                                        <?php } ?>
                                                     </div>
+
+
                                                 </div>
                                             </div>
 

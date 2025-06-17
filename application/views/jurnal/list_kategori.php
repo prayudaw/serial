@@ -16,13 +16,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <div class="page-title-right">
-                                <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item">Home</li>
-                                    <li class="breadcrumb-item active">Browse By <?php echo $title ?></li>
-                                </ol>
-                            </div>
-                            <h2 class="page-title"><?php echo $title ?></h2>
+                            <h2 class="page-title" style="text-align: center;"><?php echo strtoupper($title) ?></h2>
                         </div>
                     </div>
                 </div>
@@ -43,7 +37,7 @@
                                             <li class="dd-item dd3-item dd-collapsed"><button class="dd-collapse"
                                                     data-action="collapse" type="button">Collapse</button><button
                                                     class="dd-expand" data-action="expand" type="button">Expand</button>
-                                                <div class="dd-handle dd3-handle"></div>
+
                                                 <div class="dd3-content">
                                                     <?php echo $value['judul_jurnal'] ?>
                                                 </div>

@@ -44,7 +44,7 @@
                            <a href="<?php echo base_url() ?>"> <i class="mdi mdi-book-multiple"></i>Home</a>
                        </li>
                        <li class="has-submenu">
-                           <a href="#"> <i class="mdi mdi-calendar-repeat-outline"></i>Latest Additions </a>
+                           <!-- <a href="#"> <i class="mdi mdi-calendar-repeat-outline"></i>Latest Additions </a> -->
                        </li>
 
 

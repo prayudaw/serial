@@ -23,6 +23,8 @@ class Jurnal extends CI_Controller
         $keywords    = encode_php_tags($keyword);
         if ($keywords != "") {
             redirect(base_url(INDEX_URL . 'jurnal/search?s=' . $keywords), 'refresh');
+        } else {
+            redirect(base_url());
         }
     }
 
@@ -96,9 +98,25 @@ class Jurnal extends CI_Controller
     {
         $getDataJurnal = $this->jurnal_model->getDataJurnal($id_jurnal);
 
+        $get_data_list = $this->jurnal_model->getListByJurnalVol($id_jurnal, $vol, $no);
+
         $data = array(
             'title' => 'List ' . $getDataJurnal['judul'] . '  Volume ' . $vol . ' No ' . $no,
+            'get_list' => $get_data_list
         );
         $this->load->view('jurnal/list_artikel', $data);
+    }
+
+
+    public function detail($id)
+    {
+
+        $data = array(
+            'detail' => $this->jurnal_model->getArtikelByID($id)
+        );
+
+        // var_dump($data);
+        // die();
+        $this->load->view('jurnal/detail', $data);
     }
 }

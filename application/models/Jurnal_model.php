@@ -31,11 +31,12 @@ class Jurnal_model extends CI_Model
     //query pencarian jurnal
     public function get_search($keywords)
     {
-        $this->db->select('*');
+        $this->db->select('jurnal_artikel.*,jurnal_nama.kategori');
         $this->db->from('jurnal_artikel');
-        $this->db->like('judul', $keywords);
-        $this->db->or_like('penulis', $keywords);
-        $this->db->order_by('id', 'DESC');
+        $this->db->join('jurnal_nama', 'jurnal_artikel.id_jurnal_nama = jurnal_nama.id');
+        $this->db->like('jurnal_artikel.judul', $keywords);
+        $this->db->or_like('jurnal_artikel.penulis', $keywords);
+        $this->db->order_by('jurnal_artikel.id', 'DESC');
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -87,5 +88,29 @@ class Jurnal_model extends CI_Model
         $this->db->Where('id', $id);
         $query = $this->db->get();
         return $query->row_array();
+    }
+
+
+    public function getArtikelByID($id)
+    {
+        $this->db->select('jurnal_artikel.*,jurnal_nama.kategori');
+        $this->db->from('jurnal_artikel');
+        $this->db->join('jurnal_nama', 'jurnal_artikel.id_jurnal_nama = jurnal_nama.id');
+        $this->db->Where('jurnal_artikel.id', $id);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
+
+    public function getListByJurnalVol($id_jurnal, $vol, $no)
+    {
+
+        $this->db->from('jurnal_artikel');
+        $this->db->Where('id_jurnal_nama', $id_jurnal);
+        $this->db->Where('volume', $vol);
+        $this->db->Where('nomor', $no);
+        $this->db->order_by('nomor', 'ASC');
+        $query = $this->db->get();
+        return $query->result_array();
     }
 }
