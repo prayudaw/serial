@@ -4,7 +4,8 @@
             <div class="container-fluid">
                 <ul class="list-unstyled topnav-menu float-right mb-0">
                     <li class="dropdown notification-list">
-                        <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light"
+                            data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <span><?php echo $this->session->userdata('nama') ?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
@@ -54,10 +55,12 @@
                     <ul class="navigation-menu">
 
                         <li class="has-submenu">
-                            <a href="#"> <i class="mdi mdi-view-dashboard"></i>Dashboard</a>
+                            <a href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/jurnal_tambah"> <i
+                                    class="mdi mdi-view-dashboard"></i>Dashboard</a>
                         </li>
                         <li class="has-submenu">
-                            <a href="#"> <i class=" mdi mdi-newspaper-variant-multiple-outline"></i>Jurnal
+                            <a href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal"> <i
+                                    class=" mdi mdi-newspaper-variant-multiple-outline"></i>Jurnal
                             </a>
                         </li>
                         <li class="has-submenu">
@@ -67,8 +70,11 @@
                             <ul class="submenu megamenu">
                                 <li>
                                     <ul>
-                                        <li><a href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/jurnal_tambah">Serial Baru</a></li>
-                                        <li><a href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/tambah_edisi">Edisi Baru</a></li>
+                                        <li><a
+                                                href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/jurnal_tambah">Serial
+                                                Baru</a></li>
+                                        <li><a href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/tambah_edisi">Edisi
+                                                Baru</a></li>
                                     </ul>
                                 </li>
                             </ul>

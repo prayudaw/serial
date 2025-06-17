@@ -74,14 +74,17 @@ class Jurnal extends CI_Controller
 
         //get data
         $getListData = $this->jurnal_model->getListDataByCategory($cat);
+        // var_dump($getListData);
+        // die();
 
         $arr = array();
         foreach ($getListData as $key => $value) {
-            $getVolumelist = $this->jurnal_model->getArtikelVolume($value['judul']);
+            $getVolumelist = $this->jurnal_model->getArtikelVolume($value['id']);
+
             $arr[$key]['judul_jurnal'] = $value['judul'];
             $arr[$key]['list_volume'] = $getVolumelist;
             foreach ($getVolumelist as $k => $v) {
-                $getNomorArtikelByVolume = $this->jurnal_model->getNomorArtikelByVolume($v['nama_jurnal'], $v['volume']);
+                $getNomorArtikelByVolume = $this->jurnal_model->getNomorArtikelByVolume($v['id_jurnal_nama'], $v['volume']);
                 $arr[$key]['list_volume'][$k]['nomor'] = $getNomorArtikelByVolume;
             }
         }
@@ -91,6 +94,10 @@ class Jurnal extends CI_Controller
             'list_cat' => $arr,
             'jumlah_artikel' => count($getListData)
         );
+
+        // echo "<pre>";
+        // print_r($data);
+        // die();
         $this->load->view('jurnal/list_kategori', $data);
     }
 
