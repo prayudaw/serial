@@ -6,12 +6,43 @@ class Jurnal extends CI_Controller
     {
         parent::__construct();
         $this->load->model('jurnal_model');
+        $this->load->model('list_jurnal_model');
     }
 
     public function index()
     {
-        // die('tes');
-        $this->load->view('page/notfound');
+        $this->load->view('dashboard/jurnal/list_jurnal');
+    }
+
+    public function ajax_list_jurnal()
+    {
+        header('Content-Type: application/json');
+        $list = $this->list_jurnal_model->get_datatables();
+        // $data = array();
+
+        $no = $this->input->post('start');
+        //looping data mahasiswa
+        foreach ($list as $Data) {
+            $no++;
+            $row = array();
+            //row pertama akan kita gunakan untuk btn edit dan delete
+            $row[] = $no;
+            $row[] = $Data->judul;
+            $row[] = $Data->no_panggil;
+            $row[] = $Data->kategori;
+            $row[] = $Data->penerbit;
+            $row[] = '<a href="javascript:void(0)" id="btn-edit-post" data-id="' . $Data->id . '" class="btn btn-primary btn-sm"><i class ="fa fa-edit"></i> Edit</a>';
+
+            $data[] = $row;
+        }
+        $output = array(
+            "draw" => $this->input->post('draw'),
+            "recordsTotal" => $this->list_jurnal_model->count_all(),
+            "recordsFiltered" => $this->list_jurnal_model->count_filtered(),
+            "data" => $data,
+        );
+        //output to json format
+        $this->output->set_output(json_encode($output));
     }
 
     public function jurnal_tambah()
@@ -87,6 +118,7 @@ class Jurnal extends CI_Controller
             'tgl_input' => $tgl_input . ' ' . $_POST['jam'] . ':00',
         );
 
+
         if ($this->jurnal_model->insert_jurnal_artikel($data_input)) {
             $data = array(
                 'status' => 1,
@@ -103,11 +135,13 @@ class Jurnal extends CI_Controller
         }
     }
 
-    public function list_jurn()
+
+    public function detail_edit()
     {
-        $data = array(
-            'title' => 'List Jurnal'
-        );
-        $this->load->view('dashboard/jurnal/list_jurnal', $data);
+        $id = (int)$this->input->post('id');
+        $data = $this->list_jurnal_model->get_detail_jurnal_nama($id);
+        // var_dump($data);
+        // die();
+        echo json_encode($data);
     }
 }

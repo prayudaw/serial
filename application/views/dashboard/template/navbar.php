@@ -64,7 +64,7 @@
                             </a>
                         </li>
                         <li class="has-submenu">
-                            <a href="#">
+                            <a href="javascript: void(0);">
                                 <i class="mdi mdi-plus-box-multiple-outline"></i>Tambah
                             </a>
                             <ul class="submenu megamenu">
