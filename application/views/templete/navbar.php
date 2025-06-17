@@ -19,7 +19,7 @@
 
                <!-- LOGO -->
                <div class="logo-box">
-                   <a href="index.html" class="logo text-center">
+                   <a href="<?php echo base_url() ?>" class="logo text-center">
                        <span class="logo-lg">
                            <img src="<?php echo base_url() ?>assets/img/perpus/bk-logo.png" alt="" height="65">
                            <span class="logo-lg-text-light">SERIAL</span>
@@ -41,10 +41,10 @@
                    <!-- Navigation Menu-->
                    <ul class="navigation-menu">
                        <li class="has-submenu">
-                           <a href="#"> <i class="mdi mdi-book-multiple"></i>Home</a>
+                           <a href="<?php echo base_url() ?>"> <i class="mdi mdi-book-multiple"></i>Home</a>
                        </li>
                        <li class="has-submenu">
-                           <a href="#"> <i class="mdi mdi-calendar-repeat-outline"></i>Latest Additions </a>
+                           <!-- <a href="#"> <i class="mdi mdi-calendar-repeat-outline"></i>Latest Additions </a> -->
                        </li>
 
 

@@ -27,6 +27,11 @@
     <link href="<?php echo base_url() ?>assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet"
         type="text/css" />
 
+
+    <!-- Plugins css -->
+    <link href="<?php echo base_url() ?>assets/libs/nestable2/jquery.nestable.min.css" rel="stylesheet"
+        type="text/css" />
+
     <!-- select2 -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugin_lain/select2/select2.min.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugin_lain/select2/select2-bootstrap4.min.css" />

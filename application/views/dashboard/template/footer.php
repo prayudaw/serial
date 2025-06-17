@@ -35,7 +35,8 @@
                 <label class="custom-control-label" for="light-mode-switch">Light Mode</label>
             </div>
             <div class="custom-control custom-switch mb-3">
-                <input type="checkbox" class="custom-control-input theme-choice" id="dark-mode-switch" data-bsStyle="<?php echo base_url() ?>assets/css/bootstrap-dark.min.css"
+                <input type="checkbox" class="custom-control-input theme-choice" id="dark-mode-switch"
+                    data-bsStyle="<?php echo base_url() ?>assets/css/bootstrap-dark.min.css"
                     data-appStyle="<?php echo base_url() ?>assets/css/app-dark.min.css" />
                 <label class="custom-control-label" for="dark-mode-switch">Dark Mode</label>
             </div>
@@ -79,35 +80,35 @@
 <script src="<?php echo base_url() ?>assets/plugin_lain\select2\select2.min.js"></script>
 
 <script>
-    $(document).ready(function() {
-        $(".btn-logout").click(function(e) {
-            e.preventDefault();
-            Swal.fire({
-                title: "Apakah Anda Ingin Logout?",
-                text: "",
-                type: "warning",
-                showCancelButton: !0,
-                confirmButtonText: "Ya",
-                cancelButtonText: "Tidak",
-                confirmButtonClass: "btn btn-success mt-2",
-                cancelButtonClass: "btn btn-danger ml-2 mt-2",
-                buttonsStyling: !1,
-            }).then(function(ok) {
-                if (ok['value'] == true) {
-                    Swal.fire({
-                        title: "Success",
-                        text: "Anda Berhasil Logout",
-                        type: "success",
-                    });
-                    window.location.href = "<?php echo base_url() . INDEX_URL ?>login/logout";
-                }
-
-            });
-
+$(document).ready(function() {
+    $(".btn-logout").click(function(e) {
+        e.preventDefault();
+        Swal.fire({
+            title: "Apakah Anda Ingin Logout?",
+            text: "",
+            type: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Ya",
+            cancelButtonText: "Tidak",
+            confirmButtonClass: "btn btn-success mt-2",
+            cancelButtonClass: "btn btn-danger ml-2 mt-2",
+            buttonsStyling: !1,
+        }).then(function(ok) {
+            if (ok['value'] == true) {
+                Swal.fire({
+                    title: "Success",
+                    text: "Anda Berhasil Logout",
+                    type: "success",
+                });
+                window.location.href = "<?php echo base_url() . INDEX_URL ?>login/logout";
+            }
 
         });
 
+
     });
+
+});
 </script>
 </body>
 

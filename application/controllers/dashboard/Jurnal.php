@@ -6,13 +6,6 @@ class Jurnal extends CI_Controller
     {
         parent::__construct();
         $this->load->model('jurnal_model');
-        // $this->load->model('auth_model');
-
-        // $check = $this->auth_model->current_user();
-        // //var_dump($check);die();
-        // if ($check != 1) {
-        //     redirect(INDEX_URL . 'login');
-        // }
     }
 
     public function index()
@@ -33,8 +26,7 @@ class Jurnal extends CI_Controller
             'title' => 'Tambah Edisi',
             'jurnal_nama_list' => $get_jurnal_nama
         );
-        // var_dump($data);
-        // die();
+
         $this->load->view('dashboard/jurnal/tambah_edisi', $data);
     }
 
@@ -57,9 +49,6 @@ class Jurnal extends CI_Controller
             "keterangan" => $POST['keterangan'],
             "badan" => $POST['badan'],
         );
-
-        // var_dump($data_input);
-        // die();
 
         if ($this->jurnal_model->insert_jurnal_nama($data_input)) {
             $data = array(
