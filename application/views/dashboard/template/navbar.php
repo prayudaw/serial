@@ -55,7 +55,7 @@
                     <ul class="navigation-menu">
 
                         <li class="has-submenu">
-                            <a href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/jurnal_tambah"> <i
+                            <a href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/form_tambah_serial"> <i
                                     class="mdi mdi-view-dashboard"></i>Dashboard</a>
                         </li>
                         <li class="has-submenu">
@@ -71,7 +71,7 @@
                                 <li>
                                     <ul>
                                         <li><a
-                                                href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/jurnal_tambah">Serial
+                                                href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/form_tambah_serial">Serial
                                                 Baru</a></li>
                                         <li><a href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/tambah_edisi">Edisi
                                                 Baru</a></li>

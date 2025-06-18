@@ -69,11 +69,13 @@ class Jurnal extends CI_Controller
         echo json_encode($data);
     }
 
-    public function jurnal_tambah()
+    //form tambah serial
+    public function form_tambah_serial()
     {
-        $this->load->view('dashboard/jurnal/tambah_jurnal');
+        $this->load->view('dashboard/jurnal/tambah_serial');
     }
 
+    //form tambah edisi
     public function tambah_edisi()
     {
         $get_jurnal_nama = $this->jurnal_model->get_jurnal_nama();
@@ -85,8 +87,8 @@ class Jurnal extends CI_Controller
         $this->load->view('dashboard/jurnal/tambah_edisi', $data);
     }
 
-    //proses input jurnal nama
-    public function add_proccess_1()
+    //proses input tambah serial
+    public function tambah_serial()
     {
         $POST = $this->input->post();
         $data_input = array(
@@ -103,6 +105,7 @@ class Jurnal extends CI_Controller
             "kota" => $POST['kota'],
             "keterangan" => $POST['keterangan'],
             "badan" => $POST['badan'],
+            "link" => $POST['link'],
         );
 
         if ($this->jurnal_model->insert_jurnal_nama($data_input)) {
