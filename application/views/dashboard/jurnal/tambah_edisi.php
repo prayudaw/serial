@@ -123,6 +123,12 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-md-2 control-label">Link</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="link" placeholder="link">
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-md-2 control-label">Tanggal Input</label>
                                 <div class="col-md-5">
                                     <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="tanggal_input">
@@ -175,6 +181,7 @@
                 var penulis = $('#penulis').val();
                 var halaman = $('#halaman').val();
                 var artikel = $('#artikel').val();
+                var link = $('#link').val();
                 var tanggal_input = $('#tanggal_input').val();
                 var jam = $('#jam').val();
 
@@ -255,6 +262,7 @@
                             "penulis": penulis,
                             "halaman": halaman,
                             "artikel": artikel,
+                            "link": link,
                             "tanggal_input": tanggal_input,
                             "jam": jam
                         },
@@ -268,18 +276,20 @@
                                     type: "success",
                                 });
 
-                                window.location.href =
-                                    "<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/tambah_edisi";
 
+                                setTimeout(function() {
+                                    window.location.href =
+                                        "<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/tambah_edisi";
+                                }, 500);
 
                             }
                         },
                         error: function(response) {
-                            // Swal.fire({
-                            //     type: 'error',
-                            //     title: 'Opps!',
-                            //     text: 'server error!'
-                            // });
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Opps!',
+                                text: 'server error!'
+                            });
                         }
                     })
 

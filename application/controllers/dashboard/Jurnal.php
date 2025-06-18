@@ -142,6 +142,7 @@ class Jurnal extends CI_Controller
             'penulis' => $_POST['penulis'],
             'halaman' => $_POST['halaman'],
             'artikel' => $_POST['artikel'],
+            'link' => $_POST['link'],
             'tgl_input' => $tgl_input . ' ' . $_POST['jam'] . ':00',
         );
 
