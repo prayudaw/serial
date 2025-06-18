@@ -33,9 +33,7 @@
                             <p class="sub-header">
                             </p>
 
-                            <table
-                                id="table"
-                                class="table table-striped table-bordered dt-responsive nowrap"
+                            <table id="table" class="table table-striped table-bordered dt-responsive nowrap"
                                 style=" border-collapse: collapse;border-spacing: 0;width: 100%;">
                                 <thead>
                                     <tr>
@@ -77,7 +75,8 @@
                                 </div>
                                 <div class="form-group no-margin">
                                     <label for="field-7" class="control-label">Anak Judul</label>
-                                    <textarea class="form-control autogrow" id="anak_judul" placeholder="Anak Judul" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
+                                    <textarea class="form-control autogrow" id="anak_judul" placeholder="Anak Judul"
+                                        style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="field-3" class="control-label">Inisial Koleksi</label>
@@ -142,7 +141,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="field-3" class="control-label">Keterangan Penerbit</label>
-                                    <input type="text" class="form-control" id="keterangan" placeholder="Keterangan Penerbit">
+                                    <input type="text" class="form-control" id="keterangan"
+                                        placeholder="Keterangan Penerbit">
                                 </div>
                                 <div class="form-group">
                                     <label for="field-3" class="control-label">Badan</label>
@@ -161,66 +161,121 @@
         <!-- /.modal -->
         <?php $this->load->view('dashboard/template/footer') ?>
         <script>
-            $(document).ready(function() {
-                var table;
-                table = $("#table").DataTable({
-                    "processing": true, //Feature control the processing indicator.
-                    "serverSide": true, //Feature control DataTables' server-side processing mode.
-                    "order": [], //Initial no order.
-                    "ajax": {
-                        "url": "<?php echo base_url() . INDEX_URL ?>/dashboard/jurnal/ajax_list_jurnal",
-                        'data': function(data) {
-                            // data.searchNim = $('#nim').val();
-                            // data.searchTanggal = $('#tanggal').val();
-                        },
-                        "type": "POST"
+        $(document).ready(function() {
+            var table;
+            table = $("#table").DataTable({
+                "processing": true, //Feature control the processing indicator.
+                "serverSide": true, //Feature control DataTables' server-side processing mode.
+                "order": [], //Initial no order.
+                "ajax": {
+                    "url": "<?php echo base_url() . INDEX_URL ?>/dashboard/jurnal/ajax_list_jurnal",
+                    'data': function(data) {
+                        // data.searchNim = $('#nim').val();
+                        // data.searchTanggal = $('#tanggal').val();
                     },
-                    "createdRow": function(row, data, dataIndex) {
-                        if (data[3] == 'Belum Dikembalikan') {
-                            $(row).addClass('redClass');
+                    "type": "POST"
+                },
+                "createdRow": function(row, data, dataIndex) {
+                    if (data[3] == 'Belum Dikembalikan') {
+                        $(row).addClass('redClass');
+                    }
+                }
+            });
+
+            // show edit modal
+            $('body').on('click', '#btn-edit-post', function() {
+                var id = $(this).data('id');
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url() . INDEX_URL ?>/dashboard/jurnal/detail_edit",
+                    dataType: "JSON",
+                    data: {
+                        id: id
+                    },
+                    success: function(data) {
+                        $('#ModalaEdit').modal('show');
+                        $('#judul').val(data.judul);
+                        $('#anak_judul').val(data.anak_judul);
+                        $('#inisial').val(data.inisial);
+                        $('#kategori').val(data.kategori);
+                        $('#issn').val(data.issn);
+                        $('#klasifikasi').val(data.klasifikasi);
+                        $('#bahasa').val(data.bahasa);
+                        $('#frekuensi').val(data.frekuensi);
+                        $('#penerbit').val(data.penerbit);
+                        $('#kota').val(data.kota);
+                        $('#keterangan').val(data.keterangan);
+                        $('#badan').val(data.badan);
+                        $('#id_jurnal').val(data.id);
+                    }
+                });
+                return false;
+            });
+            // end show edit modal
+
+            $('#btn-update').click(function(e) {
+                e.preventDefault();
+                var judul = $('#judul').val();
+                var anak_judul = $('#anak_judul').val();
+                var inisial = $('#inisial').val();
+                var kategori = $('#kategori').val();
+                var issn = $('#issn').val();
+                var klasifikasi = $('#klasifikasi').val();
+                var bahasa = $('#bahasa').val();
+                var frekuensi = $('#frekuensi').val();
+                var penerbit = $('#penerbit').val();
+                var kota = $('#kota').val();
+                var keterangan = $('#keterangan').val();
+                var badan = $('#badan').val();
+                var id_jurnal = $('#id_jurnal').val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url() . INDEX_URL ?>/dashboard/jurnal/update_jurnal",
+                    dataType: "JSON",
+                    data: {
+                        judul: judul,
+                        anak_judul: anak_judul,
+                        inisial: inisial,
+                        kategori: kategori,
+                        klasifikasi: klasifikasi,
+                        issn: issn,
+                        bahasa: bahasa,
+                        frekuensi: frekuensi,
+                        penerbit: penerbit,
+                        kota: kota,
+                        keterangan: keterangan,
+                        badan: badan,
+                        id_jurnal: id_jurnal,
+
+                    },
+                    success: function(data) {
+                        console.log(data);
+                        if (data.status == 1) {
+                            Swal.fire({
+                                title: "Success",
+                                text: "Update Berhasil",
+                                type: "success",
+                            });
+                            $('#ModalaEdit').modal('hide');
+                            $('#id_jurnal').val('');
+                            table.ajax.reload(); //just reload table
                         }
+
+
+
                     }
                 });
 
-                // show edit modal
-                $('body').on('click', '#btn-edit-post', function() {
-                    var id = $(this).data('id');
-                    $.ajax({
-                        type: "POST",
-                        url: "<?php echo base_url() . INDEX_URL ?>/dashboard/jurnal/detail_edit",
-                        dataType: "JSON",
-                        data: {
-                            id: id
-                        },
-                        success: function(data) {
-                            $('#ModalaEdit').modal('show');
-                            $('#judul').val(data.judul);
-                            $('#anak_judul').val(data.anak_judul);
-                            $('#inisial').val(data.inisial);
-                            $('#kategori').val(data.kategori);
-                            $('#issn').val(data.issn);
-                            $('#klasifikasi').val(data.klasifikasi);
-                            $('#bahasa').val(data.bahasa);
-                            $('#frekuensi').val(data.frekuensi);
-                            $('#penerbit').val(data.penerbit);
-                            $('#kota').val(data.kota);
-                            $('#keterangan').val(data.keterangan);
-                            $('#badan').val(data.badan);
-                            $('#id_jurnal').val(data.id);
-                        }
-                    });
-                    return false;
-                });
-                // end show edit modal
-
-                $('#btn-update').click(function(e) {
-                    e.preventDefault();
-
-                });
-
-
-
-
 
             });
+
+
+
+
+
+
+
+
+        });
         </script>

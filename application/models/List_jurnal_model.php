@@ -95,4 +95,16 @@ class List_jurnal_model extends CI_Model
         $query = $this->db->get();
         return $query->row_array();
     }
+
+    public function update_jurnal_by_id($data, $id)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('jurnal_nama', $data);
+        // $this->db->set('updated_date',  $data['updated_date']);
+        // $this->db->set('updated_by', $data['updated_by']);
+        // $this->db->set('kondisi', $data['kondisi']);
+        // $this->db->set('ruangan', $data['ruangan']);
+        // $this->db->where('id', $data['id']);
+        // $this->db->update('barang');
+    }
 }

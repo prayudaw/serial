@@ -45,6 +45,30 @@ class Jurnal extends CI_Controller
         $this->output->set_output(json_encode($output));
     }
 
+    public function update_jurnal()
+    {
+        $POST = $this->input->post();
+        $update_data = array(
+            'judul' =>   $POST['judul'],
+            'anak_judul' => $POST['anak_judul'],
+            'kategori' => $POST['kategori'],
+            'inisial' => $POST['kategori'],
+            'issn' => $POST['issn'],
+            'klasifikasi' => $POST['klasifikasi'],
+            'bahasa' => $POST['bahasa'],
+            'frekuensi' => $POST['frekuensi'],
+            'penerbit' => $POST['penerbit'],
+            'kota' => $POST['kota'],
+            'keterangan' => $POST['keterangan'],
+            'badan' => $POST['badan']
+        );
+        $this->list_jurnal_model->update_jurnal_by_id($update_data, $POST['id_jurnal']);
+        $data = array(
+            'status' => 1
+        );
+        echo json_encode($data);
+    }
+
     public function jurnal_tambah()
     {
         $this->load->view('dashboard/jurnal/tambah_jurnal');
