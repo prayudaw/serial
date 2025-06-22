@@ -156,119 +156,120 @@
                     </div>
                 </div>
             </div>
-            <!-- /.modal -->
+        </div>
+        <!-- /.modal -->
 
-            <?php $this->load->view('dashboard/template/footer') ?>
-            <script>
-                $(document).ready(function() {
-                    $(".select2").select2({
-                        theme: 'bootstrap4',
-                    });
+        <?php $this->load->view('dashboard/template/footer') ?>
+        <script>
+            $(document).ready(function() {
+                $(".select2").select2({
+                    theme: 'bootstrap4',
+                });
 
-                    var id_jurnal = <?php echo $id_jurnal ?>;
-                    var table;
-                    table = $("#table").DataTable({
-                        "processing": true, //Feature control the processing indicator.
-                        "serverSide": true, //Feature control DataTables' server-side processing mode.
-                        "order": [], //Initial no order.
-                        "ajax": {
-                            "url": "<?php echo base_url() . INDEX_URL ?>/dashboard/list_artikel/ajax_list/" + id_jurnal,
-                            'data': function(data) {
-                                // data.searchNim = $('#nim').val();
-                                // data.searchTanggal = $('#tanggal').val();
-                            },
-                            "type": "POST"
+                var id_jurnal = <?php echo $id_jurnal ?>;
+                var table;
+                table = $("#table").DataTable({
+                    "processing": true, //Feature control the processing indicator.
+                    "serverSide": true, //Feature control DataTables' server-side processing mode.
+                    "order": [], //Initial no order.
+                    "ajax": {
+                        "url": "<?php echo base_url() . INDEX_URL ?>/dashboard/list_artikel/ajax_list/" + id_jurnal,
+                        'data': function(data) {
+                            // data.searchNim = $('#nim').val();
+                            // data.searchTanggal = $('#tanggal').val();
                         },
-                        "createdRow": function(row, data, dataIndex) {
-                            if (data[3] == 'Belum Dikembalikan') {
-                                $(row).addClass('redClass');
+                        "type": "POST"
+                    },
+                    "createdRow": function(row, data, dataIndex) {
+                        if (data[3] == 'Belum Dikembalikan') {
+                            $(row).addClass('redClass');
+                        }
+                    }
+                });
+
+                // show edit modal
+                $('body').on('click', '#btn-edit-post', function() {
+                    var id = $(this).data('id');
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url() . INDEX_URL ?>/dashboard/list_artikel/artikel_detail",
+                        dataType: "JSON",
+                        data: {
+                            id: id
+                        },
+                        success: function(data) {
+                            console.log(data);
+                            $('#ModalaEdit').modal('show');
+                            $('#id_judul_nama').val(data.id_judul_nama);
+                            $('#volume').val(data.volume);
+                            $('#nomor').val(data.nomor);
+                            $('#periode').val(data.bulan_only);
+                            $('#tahun').val(data.tahun_only);
+                            $('#eksemplar').val(data.eksemplar);
+                            $('#judul').val(data.judul);
+                            $('#penulis').val(data.penulis);
+                            $('#halaman').val(data.halaman);
+                            $('#artikel').val(data.artikel);
+                            $('#link').val(data.link);
+                            $('#id_artikel').val(data.id);
+                        }
+                    });
+                    return false;
+
+                });
+
+                $('#btn-update').click(function(e) {
+                    e.preventDefault();
+                    var id_jurnal_nama = $('#id_jurnal_nam').val();
+                    // alert(id_jurnal_nama);
+                    // return false;
+                    var volume = $('#volume').val();
+                    var nomor = $('#nomor').val();
+                    var periode = $('#periode').val();
+                    var tahun = $('#tahun').val();
+                    var eksemplar = $('#eksemplar').val();
+                    var judul = $('#judul').val();
+                    var penulis = $('#penulis').val();
+                    var halaman = $('#halaman').val();
+                    var artikel = $('#artikel').val();
+                    var link = $('#link').val();
+                    var id_artikel = $('#id_artikel').val();
+
+
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url() . INDEX_URL ?>dashboard/list_artikel/update_artikel",
+                        dataType: "JSON",
+                        data: {
+
+                            id_judul_nama: id_jurnal_nama,
+                            volume: volume,
+                            nomor: nomor,
+                            periode: periode,
+                            tahun: tahun,
+                            eksemplar: eksemplar,
+                            judul: judul,
+                            penulis: penulis,
+                            halaman: halaman,
+                            artikel: artikel,
+                            link: link,
+                            id_artikel: id_artikel
+                        },
+                        success: function(data) {
+                            if (data.status == 1) {
+                                Swal.fire({
+                                    title: "Success",
+                                    text: "Update Berhasil",
+                                    type: "success",
+                                });
+                                $('#ModalaEdit').modal('hide');
+                                $('#id_artikell').val('');
+                                table.ajax.reload(); //just reload table
                             }
                         }
                     });
 
-                    // show edit modal
-                    $('body').on('click', '#btn-edit-post', function() {
-                        var id = $(this).data('id');
-                        $.ajax({
-                            type: "POST",
-                            url: "<?php echo base_url() . INDEX_URL ?>/dashboard/list_artikel/artikel_detail",
-                            dataType: "JSON",
-                            data: {
-                                id: id
-                            },
-                            success: function(data) {
-                                console.log(data);
-                                $('#ModalaEdit').modal('show');
-                                $('#id_judul_nama').val(data.id_judul_nama);
-                                $('#volume').val(data.volume);
-                                $('#nomor').val(data.nomor);
-                                $('#periode').val(data.bulan_only);
-                                $('#tahun').val(data.tahun_only);
-                                $('#eksemplar').val(data.eksemplar);
-                                $('#judul').val(data.judul);
-                                $('#penulis').val(data.penulis);
-                                $('#halaman').val(data.halaman);
-                                $('#artikel').val(data.artikel);
-                                $('#link').val(data.link);
-                                $('#id_artikel').val(data.id);
-                            }
-                        });
-                        return false;
-
-                    });
-
-                    $('#btn-update').click(function(e) {
-                        e.preventDefault();
-                        var id_jurnal_nama = $('#id_jurnal_nam').val();
-                        // alert(id_jurnal_nama);
-                        // return false;
-                        var volume = $('#volume').val();
-                        var nomor = $('#nomor').val();
-                        var periode = $('#periode').val();
-                        var tahun = $('#tahun').val();
-                        var eksemplar = $('#eksemplar').val();
-                        var judul = $('#judul').val();
-                        var penulis = $('#penulis').val();
-                        var halaman = $('#halaman').val();
-                        var artikel = $('#artikel').val();
-                        var link = $('#link').val();
-                        var id_artikel = $('#id_artikel').val();
-
-
-                        $.ajax({
-                            type: "POST",
-                            url: "<?php echo base_url() . INDEX_URL ?>dashboard/list_artikel/update_artikel",
-                            dataType: "JSON",
-                            data: {
-
-                                id_judul_nama: id_jurnal_nama,
-                                volume: volume,
-                                nomor: nomor,
-                                periode: periode,
-                                tahun: tahun,
-                                eksemplar: eksemplar,
-                                judul: judul,
-                                penulis: penulis,
-                                halaman: halaman,
-                                artikel: artikel,
-                                link: link,
-                                id_artikel: id_artikel
-                            },
-                            success: function(data) {
-                                if (data.status == 1) {
-                                    Swal.fire({
-                                        title: "Success",
-                                        text: "Update Berhasil",
-                                        type: "success",
-                                    });
-                                    $('#ModalaEdit').modal('hide');
-                                    $('#id_artikell').val('');
-                                    table.ajax.reload(); //just reload table
-                                }
-                            }
-                        });
-
-                    });
-                    // end show edit modal
                 });
-            </script>
+                // end show edit modal
+            });
+        </script>
