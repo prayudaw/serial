@@ -50,7 +50,7 @@ class Auth_model extends CI_Model
         }
 
         $user_id = $this->session->userdata(self::SESSION_KEY);
-        $query = $this->db->get_where($this->_table, array('kd_operator' => $user_id));
+        $query = $this->db_siprus->get_where($this->_table, array('kd_operator' => $user_id));
         //var_dump($query->result_array());die();
         return $query->num_rows();
     }

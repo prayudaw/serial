@@ -5,8 +5,14 @@ class Jurnal extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('auth_model');
         $this->load->model('jurnal_model');
         $this->load->model('list_jurnal_model');
+        $check = $this->auth_model->current_user();
+        //var_dump($check);die();
+        if ($check != 1) {
+            redirect(INDEX_URL . 'login');
+        }
     }
 
     public function index()
@@ -18,7 +24,7 @@ class Jurnal extends CI_Controller
     {
         header('Content-Type: application/json');
         $list = $this->list_jurnal_model->get_datatables();
-        // $data = array();
+        $data = array();
 
         $no = $this->input->post('start');
         //looping data mahasiswa
@@ -31,10 +37,13 @@ class Jurnal extends CI_Controller
             $row[] = $Data->no_panggil;
             $row[] = $Data->kategori;
             $row[] = $Data->penerbit;
-            $row[] = '<a href="javascript:void(0)" id="btn-edit-post" data-id="' . $Data->id . '" class="btn btn-primary btn-sm"><i class ="fa fa-edit"></i> Edit</a>';
+            $row[] = '
+            <a href="' . site_url() . INDEX_URL . '/dashboard/list_artikel?id=' . $Data->id . '"  class="btn btn-info btn-sm"><i class ="ion ion-md-list"></i> Koleksi</a>
+            <a href="javascript:void(0)" id="btn-edit-post" data-id="' . $Data->id . '" class="btn btn-primary btn-sm"><i class ="fa fa-edit"></i> Edit</a>';
 
             $data[] = $row;
         }
+
         $output = array(
             "draw" => $this->input->post('draw'),
             "recordsTotal" => $this->list_jurnal_model->count_all(),

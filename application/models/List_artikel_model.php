@@ -3,11 +3,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-class List_jurnal_model extends CI_Model
+class List_artikel_model extends CI_Model
 {
-    private $table = "jurnal_nama";
-    private $column_order = array('id', 'judul', 'no_panggil', 'kategori', 'penerbit');
-    private $column_search = array('id', 'judul', 'no_panggil', 'kategori', 'penerbit');
+    private $table = "jurnal_artikel";
+    private $column_order = array('id', 'judul', 'volume', 'nomor', 'penulis');
+    private $column_search = array('id', 'judul', 'volume', 'nomor', 'penulis');
     private $order = array('id' => 'desc');
 
     public function __construct()
@@ -41,18 +41,6 @@ class List_jurnal_model extends CI_Model
             $i++;
         }
 
-        ## Search
-        // if (!empty($_POST['searchNim'])) {
-        //     $this->db->where('nim like "%' . $_POST['searchNim'] . '%"');
-        // }
-
-        // if (!empty($_POST['searchTanggal'])) {
-        //     $tgl = explode(" - ", $_POST['searchTanggal']);
-        //     $tgl1 = date('y-m-d', strtotime($tgl[0]));
-        //     $tgl2 = date('y-m-d', strtotime($tgl[1]));
-        //     $this->db->where("tgl_pinjam BETWEEN '" . $tgl1 . " 00:00:00' and '" . $tgl2 . " 23:00:00'");
-        // }
-
         // jika datatable mengirim POST untuk order
         if ($this->input->post('order')) {
             $Order = $this->input->post('order');
@@ -63,42 +51,58 @@ class List_jurnal_model extends CI_Model
         }
     }
 
-    function get_datatables()
+    function get_datatables($id_jurnal)
     {
         $this->_get_datatables_query();
 
+        $this->db->where('id_jurnal_nama', $id_jurnal);
         if ($this->input->post('length') != -1)
             $this->db->limit($this->input->post('length'), $this->input->post('start'));
         $query = $this->db->get();
-        // echo $this->db->last_query();
-        // die();
+
         return $query->result();
     }
 
-    function count_filtered()
+    function count_filtered($id_jurnal)
     {
         $this->_get_datatables_query();
+        if ($id_jurnal) {
+            $this->db->where('id_jurnal_nama', $id_jurnal);
+        }
+
         $query = $this->db->get();
         return $query->num_rows();
     }
 
-    public function count_all($now = false)
+    public function count_all()
     {
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
-    public function get_detail_jurnal_nama($id)
+
+    public function get_detail_artikel($id)
     {
-        $this->db->from('jurnal_nama');
-        $this->db->Where('id', $id);
+        $this->db->select('jurnal_artikel.*, YEAR(jurnal_artikel.`tahun`) as tahun_only,MONTH(jurnal_artikel.`tahun`) as bulan_only,jurnal_nama.judul as judul_jurnal');
+        $this->db->from('jurnal_artikel');
+        $this->db->join('jurnal_nama', 'jurnal_nama.id = jurnal_artikel.id_jurnal_nama');
+        $this->db->Where('jurnal_artikel.id', $id);
         $query = $this->db->get();
         return $query->row_array();
     }
 
-    public function update_jurnal_by_id($data, $id)
+
+    public function get_jurnal()
+    {
+        $this->db->select('*');
+        $this->db->from('jurnal_nama');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function update_artikel_by_id($data, $id)
     {
         $this->db->where('id', $id);
-        $this->db->update('jurnal_nama', $data);
+        $this->db->update('jurnal_artikel', $data);
     }
 }

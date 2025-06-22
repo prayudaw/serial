@@ -35,11 +35,12 @@
                     <a href="index.html" class="logo text-center">
                         <span class="logo-lg">
                             <img src="<?php echo base_url() ?>assets/img/perpus/bk-logo.png" alt="" height="65">
-                            <!-- <span class="logo-lg-text-light">Zircos</span> -->
+                            <span class="logo-lg-text-light">SERIAL</span>
                         </span>
                         <span class="logo-sm">
                             <!-- <span class="logo-sm-text-dark">Z</span> -->
-                            <img src="<?php echo base_url() ?>assets/images/logo-sm.png" alt="" height="22">
+                            <img src="<?php echo base_url() ?>assets/img/perpus/bk-logo.png" alt="" height="22">
+                            <span class="logo-lg-text-light">SERIAL</span>
                         </span>
                     </a>
                 </div>
