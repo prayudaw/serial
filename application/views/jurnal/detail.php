@@ -73,6 +73,18 @@
                                                 <td><?php echo $detail['eksemplar'] ?></td>
                                             </tr>
                                             <tr>
+                                                <th style="width: 300px;"><b style="color:#000">Link:</b>
+                                                </th>
+                                                <td>
+                                                    <?php if ($detail['link'] == '' || $detail['link'] == '-') { ?>
+                                                    -
+                                                    <?php } else { ?>
+                                                    <a href="<?php echo $detail['link'] ?>"
+                                                        target="_blank"><?php echo $detail['link'] ?></a>
+                                                    <?php } ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
                                                 <th style="width: 300px;"><b style="color:#000">Abstrak:</b>
                                                 </th>
                                                 <td><?php echo $detail['artikel'] ?></td>
@@ -104,8 +116,8 @@
             <!-- end footer -->
 
             <script>
-                $(document).ready(function() {
+            $(document).ready(function() {
 
-                    $("#pencari").val('<?php echo $search ?>');
-                });
+                $("#pencari").val('<?php echo $search ?>');
+            });
             </script>
