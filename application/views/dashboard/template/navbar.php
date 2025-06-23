@@ -4,7 +4,8 @@
             <div class="container-fluid">
                 <ul class="list-unstyled topnav-menu float-right mb-0">
                     <li class="dropdown notification-list">
-                        <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light"
+                            data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <span><?php echo $this->session->userdata('nama') ?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
@@ -34,11 +35,12 @@
                     <a href="index.html" class="logo text-center">
                         <span class="logo-lg">
                             <img src="<?php echo base_url() ?>assets/img/perpus/bk-logo.png" alt="" height="65">
-                            <!-- <span class="logo-lg-text-light">Zircos</span> -->
+                            <span class="logo-lg-text-light">SERIAL</span>
                         </span>
                         <span class="logo-sm">
                             <!-- <span class="logo-sm-text-dark">Z</span> -->
-                            <img src="<?php echo base_url() ?>assets/images/logo-sm.png" alt="" height="22">
+                            <img src="<?php echo base_url() ?>assets/img/perpus/bk-logo.png" alt="" height="22">
+                            <span class="logo-lg-text-light">SERIAL</span>
                         </span>
                     </a>
                 </div>
@@ -54,21 +56,26 @@
                     <ul class="navigation-menu">
 
                         <li class="has-submenu">
-                            <a href="#"> <i class="mdi mdi-view-dashboard"></i>Dashboard</a>
+                            <a href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/form_tambah_serial"> <i
+                                    class="mdi mdi-view-dashboard"></i>Dashboard</a>
                         </li>
                         <li class="has-submenu">
-                            <a href="#"> <i class=" mdi mdi-newspaper-variant-multiple-outline"></i>Jurnal
+                            <a href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal"> <i
+                                    class=" mdi mdi-newspaper-variant-multiple-outline"></i>Jurnal
                             </a>
                         </li>
                         <li class="has-submenu">
-                            <a href="#">
+                            <a href="javascript: void(0);">
                                 <i class="mdi mdi-plus-box-multiple-outline"></i>Tambah
                             </a>
                             <ul class="submenu megamenu">
                                 <li>
                                     <ul>
-                                        <li><a href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/jurnal_tambah">Serial Baru</a></li>
-                                        <li><a href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/tambah_edisi">Edisi Baru</a></li>
+                                        <li><a
+                                                href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/form_tambah_serial">Serial
+                                                Baru</a></li>
+                                        <li><a href="<?php echo base_url() . INDEX_URL ?>dashboard/jurnal/tambah_edisi">Edisi
+                                                Baru</a></li>
                                     </ul>
                                 </li>
                             </ul>

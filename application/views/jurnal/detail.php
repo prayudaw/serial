@@ -27,13 +27,13 @@
                 <!-- end page title -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="mt-4">
+                        <!-- <div class="mt-4">
                             <h4>Abstrak</h4>
 
                         </div>
                         <p class="mt-3">
                             <?php echo $detail['artikel'] ?>
-                        </p>
+                        </p> -->
 
                         <div class="mt-4">
                             <div class="card-box">
@@ -71,6 +71,23 @@
                                                 <th style="width: 300px;"><b style="color:#000">Jumlah Eksemplar:</b>
                                                 </th>
                                                 <td><?php echo $detail['eksemplar'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th style="width: 300px;"><b style="color:#000">Link:</b>
+                                                </th>
+                                                <td>
+                                                    <?php if ($detail['link'] == '' || $detail['link'] == '-') { ?>
+                                                    -
+                                                    <?php } else { ?>
+                                                    <a href="<?php echo $detail['link'] ?>"
+                                                        target="_blank"><?php echo $detail['link'] ?></a>
+                                                    <?php } ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th style="width: 300px;"><b style="color:#000">Abstrak:</b>
+                                                </th>
+                                                <td><?php echo $detail['artikel'] ?></td>
                                             </tr>
 
 

@@ -34,8 +34,9 @@ class Login extends CI_Controller
 
 	public function logout()
 	{
+
 		$this->load->model('auth_model');
 		$this->auth_model->logout();
-		redirect(site_url('login'));
+		redirect(site_url(INDEX_URL . 'login'));
 	}
 }

@@ -77,38 +77,62 @@
 <script src="<?php echo base_url() ?>assets/libs/bootstrap-daterangepicker/daterangepicker.js"></script>
 
 <!-- select2 -->
-<script src="<?php echo base_url() ?>assets/plugin_lain\select2\select2.min.js"></script>
+<script src="<?php echo base_url() ?>assets/plugin_lain/select2/select2.min.js"></script>
+
+
+<!-- Datatable plugin js -->
+<script src="<?php echo base_url() ?>assets/libs/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url() ?>assets/libs/datatables/dataTables.bootstrap4.min.js"></script>
+
+<script src="<?php echo base_url() ?>assets/libs/datatables/dataTables.responsive.min.js"></script>
+<script src="<?php echo base_url() ?>assets/libs/datatables/responsive.bootstrap4.min.js"></script>
+
+<script src="<?php echo base_url() ?>assets/libs/datatables/dataTables.buttons.min.js"></script>
+<script src="<?php echo base_url() ?>assets/libs/datatables/buttons.bootstrap4.min.js"></script>
+
+<script src="<?php echo base_url() ?>assets/libs/datatables/buttons.html5.min.js"></script>
+<script src="<?php echo base_url() ?>assets/libs/datatables/buttons.print.min.js"></script>
+
+<script src="<?php echo base_url() ?>assets/libs/datatables/dataTables.keyTable.min.js"></script>
+<script src="<?php echo base_url() ?>assets/libs/datatables/dataTables.fixedHeader.min.js"></script>
+<script src="<?php echo base_url() ?>assets/libs/datatables/dataTables.scroller.min.js"></script>
+<script src="<?php echo base_url() ?>assets/libs/datatables/dataTables.fixedColumns.min.js"></script>
+
+<script src="<?php echo base_url() ?>assets/libs/jszip/jszip.min.js"></script>
+<script src="<?php echo base_url() ?>assets/libs/pdfmake/pdfmake.min.js"></script>
+<script src="<?php echo base_url() ?>assets/libs/pdfmake/vfs_fonts.js"></script>
+
 
 <script>
-$(document).ready(function() {
-    $(".btn-logout").click(function(e) {
-        e.preventDefault();
-        Swal.fire({
-            title: "Apakah Anda Ingin Logout?",
-            text: "",
-            type: "warning",
-            showCancelButton: !0,
-            confirmButtonText: "Ya",
-            cancelButtonText: "Tidak",
-            confirmButtonClass: "btn btn-success mt-2",
-            cancelButtonClass: "btn btn-danger ml-2 mt-2",
-            buttonsStyling: !1,
-        }).then(function(ok) {
-            if (ok['value'] == true) {
-                Swal.fire({
-                    title: "Success",
-                    text: "Anda Berhasil Logout",
-                    type: "success",
-                });
-                window.location.href = "<?php echo base_url() . INDEX_URL ?>login/logout";
-            }
+    $(document).ready(function() {
+        $(".btn-logout").click(function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: "Apakah Anda Ingin Logout?",
+                text: "",
+                type: "warning",
+                showCancelButton: !0,
+                confirmButtonText: "Ya",
+                cancelButtonText: "Tidak",
+                confirmButtonClass: "btn btn-success mt-2",
+                cancelButtonClass: "btn btn-danger ml-2 mt-2",
+                buttonsStyling: !1,
+            }).then(function(ok) {
+                if (ok['value'] == true) {
+                    Swal.fire({
+                        title: "Success",
+                        text: "Anda Berhasil Logout",
+                        type: "success",
+                    });
+                    window.location.href = "<?php echo base_url() . INDEX_URL ?>login/logout";
+                }
+
+            });
+
 
         });
 
-
     });
-
-});
 </script>
 </body>
 

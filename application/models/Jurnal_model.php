@@ -55,22 +55,22 @@ class Jurnal_model extends CI_Model
 
 
     //query pencarian jurnal
-    public function getArtikelVolume($nama_jurnal)
+    public function getArtikelVolume($id)
     {
-        $this->db->select('nama_jurnal,volume');
+        $this->db->select('id_jurnal_nama,nama_jurnal,volume');
         $this->db->from('jurnal_artikel');
-        $this->db->Where('nama_jurnal', $nama_jurnal);
+        $this->db->Where('id_jurnal_nama', $id);
         $this->db->group_by('volume');
         $this->db->order_by('volume', 'ASC');
         $query = $this->db->get();
         return $query->result_array();
     }
 
-    public function getNomorArtikelByVolume($nama_jurnal, $vol)
+    public function getNomorArtikelByVolume($id_jurnal_nama, $vol)
     {
         $this->db->select('nomor,id_jurnal_nama');
         $this->db->from('jurnal_artikel');
-        $this->db->Where('nama_jurnal', $nama_jurnal);
+        $this->db->Where('id_jurnal_nama', $id_jurnal_nama);
         $this->db->Where('volume', $vol);
         $this->db->group_by('nomor');
         $this->db->order_by('nomor', 'ASC');

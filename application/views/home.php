@@ -47,7 +47,7 @@
                             <div class="card">
                                 <div class="card-body"
                                     style="background-color: #36404E;color:aliceblue;text-align:center;height:150px">
-                                    <span style="font-size: 50px;text-align:center"><i class="mdi mdi-card-search"></i>
+                                    <span style="font-size: 40px;text-align:center"><i class="mdi mdi-card-search"></i>
                                         <b>JURNAL</b></span>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                             <div class="card">
                                 <div class="card-body"
                                     style="background-color: #36404E;color:aliceblue;text-align:center;height:150px">
-                                    <span style="font-size: 50px;text-align:center"><i class="mdi mdi-card-search"></i>
+                                    <span style="font-size: 40px;text-align:center"><i class="mdi mdi-card-search"></i>
                                         <b>MAJALAH</b></span>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                             <div class="card">
                                 <div class="card-body"
                                     style="background-color: #36404E;color:aliceblue;text-align:center;height:150px">
-                                    <span style="font-size: 50px;text-align:center"><i class="mdi mdi-card-search"></i>
+                                    <span style="font-size: 40px;text-align:center"><i class="mdi mdi-card-search"></i>
                                         <b>BULLETIN</b></span>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                             <div class="card">
                                 <div class="card-body"
                                     style="background-color: #36404E;color:aliceblue;text-align:center;height:150px">
-                                    <span style="font-size: 50px;text-align:center"><i class="mdi mdi-card-search"></i>
+                                    <span style="font-size: 40px;text-align:center"><i class="mdi mdi-card-search"></i>
                                         <b>NEWS LETTER</b></span>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                             <div class="card">
                                 <div class="card-body"
                                     style="background-color: #36404E;color:aliceblue;text-align:center;height:150px">
-                                    <span style="font-size: 50px;text-align:center"><i class="mdi mdi-card-search"></i>
+                                    <span style="font-size: 40px;text-align:center"><i class="mdi mdi-card-search"></i>
                                         <b>SURAT KABAR</b></span>
                                 </div>
                             </div>
@@ -102,7 +102,7 @@
                             <div class="card">
                                 <div class="card-body"
                                     style="background-color: #36404E;color:aliceblue;text-align:center;height:150px">
-                                    <span style="font-size: 50px;text-align:center"><i class="mdi mdi-card-search"></i>
+                                    <span style="font-size: 40px;text-align:center"><i class="mdi mdi-card-search"></i>
                                         <b>TABLOID</b></span>
                                 </div>
                             </div>
